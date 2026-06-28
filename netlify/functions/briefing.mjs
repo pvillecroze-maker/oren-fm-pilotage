@@ -1,11 +1,9 @@
-const json = (statusCode, body) => ({
-  statusCode,
+const json = (status, body) => new Response(JSON.stringify(body), {
+  status,
   headers: {
     'Content-Type': 'application/json; charset=utf-8',
-    'Cache-Control': 'no-store',
-    'Access-Control-Allow-Origin': '*'
-  },
-  body: JSON.stringify(body)
+    'Cache-Control': 'no-store'
+  }
 });
 
 function isAuthorized(request) {
@@ -20,11 +18,14 @@ export default async (request) => {
 
   const endpoint = process.env.OREN_APPS_SCRIPT_URL;
   const token = process.env.OREN_SYNC_TOKEN;
-  if (!endpoint || !token) {
-    return json(503, { ok: false, error: 'Configuration Netlify incomplète.' });
-  }
+  if (!endpoint || !token) return json(503, { ok: false, error: 'Variables Netlify incomplètes.' });
 
-  const url = new URL(endpoint);
+  let url;
+  try {
+    url = new URL(endpoint);
+  } catch {
+    return json(503, { ok: false, error: 'URL Apps Script invalide dans Netlify.' });
+  }
   url.searchParams.set('mode', 'briefing');
   url.searchParams.set('token', token);
 
@@ -39,11 +40,9 @@ export default async (request) => {
     try {
       payload = JSON.parse(raw);
     } catch {
-      return json(502, { ok: false, error: 'Apps Script a renvoyé une réponse non lisible.' });
+      return json(502, { ok: false, error: 'Apps Script a renvoyé une réponse non JSON.' });
     }
-    if (!response.ok || !payload.ok) {
-      return json(502, { ok: false, error: payload.error || 'Apps Script a refusé la synchronisation.' });
-    }
+    if (!response.ok || !payload.ok) return json(502, { ok: false, error: payload.error || 'Apps Script a refusé la synchronisation.' });
     return json(200, payload);
   } catch (error) {
     return json(504, { ok: false, error: `Passerelle indisponible : ${error.message}` });
