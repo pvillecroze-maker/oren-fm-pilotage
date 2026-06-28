@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#08090c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Oren FM">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="/styles.css">
+  <title>Oren FM · 3·5·7</title>
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <div class="brand"><b>O</b><span>FM</span></div>
+      <div><p class="eyebrow">OREN FM · PILOTAGE</p><h1>3·5·7</h1><p id="date">Configuration requise</p></div>
+      <button id="settings" aria-label="Paramètres">⌁</button>
+    </header>
+    <section class="status"><span id="status">Entre le code d’accès puis actualise.</span><button id="refresh">Actualiser</button></section>
+    <section class="metrics"><div><b id="n3">0</b><span>CAPS</span></div><div><b id="n5">0</b><span>GESTES</span></div><div><b id="n7">0</b><span>VIGIES</span></div></section>
+    <section><p class="kicker">LE CADRE</p><h2>Rendez-vous & échéances</h2><div id="agenda" class="list"></div></section>
+    <section><p class="kicker">LE PREMIER PAS</p><h2>À faire maintenant</h2><div id="first" class="first"></div></section>
+    <section><p class="kicker">SÉQUENCE 01</p><h2>3 · Caps du jour</h2><div id="focus" class="list"></div></section>
+    <section><p class="kicker">SÉQUENCE 02</p><h2>5 · Gestes de conduite</h2><div id="actions" class="list"></div></section>
+    <section><p class="kicker">SÉQUENCE 03</p><h2>7 · Vigies</h2><div id="watch" class="list"></div></section>
+    <section><p class="kicker">RELANCES</p><h2>À surveiller</h2><div id="relances" class="list"></div></section>
+  </main>
+  <dialog id="dialog"><form method="dialog"><h2>Accès Oren FM</h2><p>Ce code protège l’accès à ton briefing. Il ne correspond ni à Gmail ni à Apps Script.</p><input id="password" type="password" autocomplete="current-password" placeholder="Code d’accès Oren FM"><div class="actions"><button value="cancel">Fermer</button><button id="save" value="default">Enregistrer</button></div><p id="error"></p></form></dialog>
+  <script src="/app.js" defer></script>
+</body>
+</html>
