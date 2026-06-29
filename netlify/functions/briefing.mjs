@@ -6,19 +6,26 @@ const json = (status, body) => new Response(JSON.stringify(body), {
   }
 });
 
-function isAuthorized(request) {
-  const expected = process.env.OREN_APP_PASSWORD;
-  const received = request.headers.get('authorization') || '';
-  return Boolean(expected && received === `Bearer ${expected}`);
+function readPassword() {
+  return String(process.env.OREN_APP_PASSWORD || '').trim();
 }
 
 export default async (request) => {
   if (request.method !== 'GET') return json(405, { ok: false, error: 'Méthode non autorisée.' });
-  if (!isAuthorized(request)) return json(401, { ok: false, error: 'Code d’accès Oren FM invalide.' });
 
-  const endpoint = process.env.OREN_APPS_SCRIPT_URL;
-  const token = process.env.OREN_SYNC_TOKEN;
-  if (!endpoint || !token) return json(503, { ok: false, error: 'Variables Netlify incomplètes.' });
+  const expected = readPassword();
+  if (!expected) {
+    return json(503, { ok: false, error: 'Variable Netlify OREN_APP_PASSWORD absente pour les fonctions.' });
+  }
+
+  const received = request.headers.get('authorization') || '';
+  if (received !== `Bearer ${expected}`) {
+    return json(401, { ok: false, error: 'Le code saisi ne correspond pas à OREN_APP_PASSWORD dans Netlify.' });
+  }
+
+  const endpoint = String(process.env.OREN_APPS_SCRIPT_URL || '').trim();
+  const token = String(process.env.OREN_SYNC_TOKEN || '').trim();
+  if (!endpoint || !token) return json(503, { ok: false, error: 'Variables Netlify Apps Script incomplètes.' });
 
   let url;
   try {
