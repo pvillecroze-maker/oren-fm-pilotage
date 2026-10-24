@@ -20,3 +20,11 @@ Chargement initial et actualisation des tâches depuis les colonnes A:Q de MATRI
 
 ## Correctif 4.3.1
 La matrice masque par défaut les tâches terminées et les exclut des compteurs de quadrants. Filtres À traiter / Terminées / Toutes les tâches. Aucune suppression de données.
+
+## 4.4 — Gmail multi-compte et Music
+
+Dans Mails, ajouter chaque boîte Gmail séparément. Le compte connecté au panneau Google reste celui utilisé pour Sheets, Agenda et Drive. Fenêtre glissante de 30 jours, pages complètes, corps MIME texte lus, archives et envoyés inclus, spam/corbeille exclus. Les pièces jointes documentaires ne sont pas analysées. Le préclassement est une heuristique par règles, pas une analyse sémantique exhaustive ; contrôler la conversation et valider action/quadrant avant ajout dans Sheets. Les notifications Mailsuite ne remplacent pas le dernier échange humain. Un échec conserve la liste précédente et affiche une couverture incomplète. Tokens en mémoire, métadonnées locales ; aucune donnée de messagerie n'est livrée dans le dépôt. La lecture nécessite l'application ouverte et une session valide, elle n'est pas une tâche de fond serveur.
+
+Music intègre le projet SILLAGE/MODULATION existant et ses 264 références musicales. Historique, imports/exports et sessions locaux conservés dans son propre espace de stockage. Les données d'une ancienne origine doivent être exportées depuis celle-ci puis importées. Dans Vercel, configurer en secrets serveur APPLE_MUSIC_TEAM_ID, APPLE_MUSIC_KEY_ID, APPLE_MUSIC_PRIVATE_KEY et l'origine publique SILLAGE_PUBLIC_ORIGIN. Ne jamais publier la clé .p8. Sans ces paramètres, /api/musickit-token renvoie 503 ; la composition locale reste disponible. Une autorisation Apple Music est ensuite nécessaire pour créer une nouvelle playlist. Aucune playlist existante n'est remplacée.
+
+Validation : `node tests/mail-sync.test.cjs`. Le test simule Gmail ; il ne constitue pas un test réel du consentement Google ou Apple sur iPhone.

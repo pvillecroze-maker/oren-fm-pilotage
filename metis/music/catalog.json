@@ -1,0 +1,3834 @@
+[
+  {
+    "id": "the national::about today",
+    "title": "About Today",
+    "artist": "The National",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "indie",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "the national::light years",
+    "title": "Light Years",
+    "artist": "The National",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "indie",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "the national::i need my girl",
+    "title": "I Need My Girl",
+    "artist": "The National",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/i-need-my-girl/805499798?i=805499804",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "modulation",
+      "sillage"
+    ],
+    "legacyModulationId": 72
+  },
+  {
+    "id": "the national::pink rabbits",
+    "title": "Pink Rabbits",
+    "artist": "The National",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "indie",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "the national::quiet light",
+    "title": "Quiet Light",
+    "artist": "The National",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "indie",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "radiohead::reckoner",
+    "title": "Reckoner",
+    "artist": "Radiohead",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "radiohead::no surprises",
+    "title": "No Surprises",
+    "artist": "Radiohead",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "radiohead::weird fishes arpeggi",
+    "title": "Weird Fishes / Arpeggi",
+    "artist": "Radiohead",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/weird-fishes-arpeggi/1109714933?i=1109715168",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "modulation",
+      "sillage"
+    ],
+    "legacyModulationId": 16
+  },
+  {
+    "id": "radiohead::nude",
+    "title": "Nude",
+    "artist": "Radiohead",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/nude/1109714933?i=1109715165",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "modulation",
+      "sillage"
+    ],
+    "legacyModulationId": 57
+  },
+  {
+    "id": "radiohead::high and dry",
+    "title": "High and Dry",
+    "artist": "Radiohead",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "massive attack::teardrop",
+    "title": "Teardrop",
+    "artist": "Massive Attack",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "massive attack::angel",
+    "title": "Angel",
+    "artist": "Massive Attack",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "massive attack::protection",
+    "title": "Protection",
+    "artist": "Massive Attack",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "portishead::roads",
+    "title": "Roads",
+    "artist": "Portishead",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "portishead::glory box",
+    "title": "Glory Box",
+    "artist": "Portishead",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "the xx::intro",
+    "title": "Intro",
+    "artist": "The xx",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "the xx::angels",
+    "title": "Angels",
+    "artist": "The xx",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "london grammar::strong",
+    "title": "Strong",
+    "artist": "London Grammar",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "london grammar::hey now",
+    "title": "Hey Now",
+    "artist": "London Grammar",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/hey-now/1446578012?i=1446578214",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "modulation",
+      "sillage"
+    ],
+    "legacyModulationId": 56
+  },
+  {
+    "id": "the doors::the end",
+    "title": "The End",
+    "artist": "The Doors",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "indie",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "bon iver::holocene",
+    "title": "Holocene",
+    "artist": "Bon Iver",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "m83::wait",
+    "title": "Wait",
+    "artist": "M83",
+    "album": "Hurry up, We're Dreaming",
+    "isrc": "GB55H1100005",
+    "url": "https://music.apple.com/fr/album/wait/1674216738?i=1674217581",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "modulation",
+      "sillage"
+    ],
+    "legacyModulationId": 55
+  },
+  {
+    "id": "nick cave the bad seeds::into my arms",
+    "title": "Into My Arms",
+    "artist": "Nick Cave & The Bad Seeds",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "nick cave the bad seeds::jubilee street",
+    "title": "Jubilee Street",
+    "artist": "Nick Cave & The Bad Seeds",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "the cinematic orchestra::to build a home",
+    "title": "To Build a Home",
+    "artist": "The Cinematic Orchestra",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/to-build-a-home/416274689?i=416274746",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "modulation",
+      "sillage"
+    ],
+    "legacyModulationId": 80
+  },
+  {
+    "id": "the national::bloodbuzz ohio",
+    "title": "Bloodbuzz Ohio",
+    "artist": "The National",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "indie",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "the national::graceless",
+    "title": "Graceless",
+    "artist": "The National",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "indie",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "the national::don t swallow the cap",
+    "title": "Don't Swallow the Cap",
+    "artist": "The National",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "indie",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "the national::mistaken for strangers",
+    "title": "Mistaken for Strangers",
+    "artist": "The National",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "indie",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "the national::sorrow",
+    "title": "Sorrow",
+    "artist": "The National",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "indie",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "the war on drugs::under the pressure",
+    "title": "Under the Pressure",
+    "artist": "The War on Drugs",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "the war on drugs::red eyes",
+    "title": "Red Eyes",
+    "artist": "The War on Drugs",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "the war on drugs::pain",
+    "title": "Pain",
+    "artist": "The War on Drugs",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "the war on drugs::thinking of a place",
+    "title": "Thinking of a Place",
+    "artist": "The War on Drugs",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "editors::munich",
+    "title": "Munich",
+    "artist": "Editors",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "indie",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "editors::smokers outside the hospital doors",
+    "title": "Smokers Outside the Hospital Doors",
+    "artist": "Editors",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "indie",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "editors::an end has a start",
+    "title": "An End Has a Start",
+    "artist": "Editors",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "indie",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "interpol::obstacle 1",
+    "title": "Obstacle 1",
+    "artist": "Interpol",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "indie",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "interpol::evil",
+    "title": "Evil",
+    "artist": "Interpol",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "indie",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "interpol::nyc",
+    "title": "NYC",
+    "artist": "Interpol",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "indie",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "placebo::every you every me",
+    "title": "Every You Every Me",
+    "artist": "Placebo",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "indie",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "placebo::running up that hill",
+    "title": "Running Up That Hill",
+    "artist": "Placebo",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "indie",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "kings of leon::use somebody",
+    "title": "Use Somebody",
+    "artist": "Kings of Leon",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "indie",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "the killers::read my mind",
+    "title": "Read My Mind",
+    "artist": "The Killers",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "indie",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "sam fender::seventeen going under",
+    "title": "Seventeen Going Under",
+    "artist": "Sam Fender",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "indie",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "seafret::oceans",
+    "title": "Oceans",
+    "artist": "Seafret",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "stereophonics::maybe tomorrow",
+    "title": "Maybe Tomorrow",
+    "artist": "Stereophonics",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/maybe-tomorrow/1440953312?i=1440953513",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "modulation",
+      "sillage"
+    ],
+    "legacyModulationId": 24
+  },
+  {
+    "id": "snow patrol::run",
+    "title": "Run",
+    "artist": "Snow Patrol",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "snow patrol::chasing cars",
+    "title": "Chasing Cars",
+    "artist": "Snow Patrol",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "coldplay::fix you",
+    "title": "Fix You",
+    "artist": "Coldplay",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "robbie williams::feel",
+    "title": "Feel",
+    "artist": "Robbie Williams",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "robbie williams::come undone",
+    "title": "Come Undone",
+    "artist": "Robbie Williams",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "robbie williams::angels",
+    "title": "Angels",
+    "artist": "Robbie Williams",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "robbie williams::rock dj",
+    "title": "Rock DJ",
+    "artist": "Robbie Williams",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "robbie williams::let me entertain you",
+    "title": "Let Me Entertain You",
+    "artist": "Robbie Williams",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "robbie williams::supreme",
+    "title": "Supreme",
+    "artist": "Robbie Williams",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "robbie williams::she s the one",
+    "title": "She's the One",
+    "artist": "Robbie Williams",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "oasis::don t look back in anger",
+    "title": "Don't Look Back in Anger",
+    "artist": "Oasis",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "oasis::wonderwall",
+    "title": "Wonderwall",
+    "artist": "Oasis",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "oasis::live forever",
+    "title": "Live Forever",
+    "artist": "Oasis",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "oasis::champagne supernova",
+    "title": "Champagne Supernova",
+    "artist": "Oasis",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "the verve::bitter sweet symphony",
+    "title": "Bitter Sweet Symphony",
+    "artist": "The Verve",
+    "album": "Urban Hymns (Remastered 2016)",
+    "isrc": "GBUM71601816",
+    "url": "https://music.apple.com/fr/album/bitter-sweet-symphony/725844867?i=725844999",
+    "kind": "britpop",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "modulation",
+      "sillage"
+    ],
+    "legacyModulationId": 69
+  },
+  {
+    "id": "the verve::lucky man",
+    "title": "Lucky Man",
+    "artist": "The Verve",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/lucky-man/725818047?i=725818550",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "modulation",
+      "sillage"
+    ],
+    "legacyModulationId": 29
+  },
+  {
+    "id": "the verve::sonnet",
+    "title": "Sonnet",
+    "artist": "The Verve",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/sonnet/1443258184?i=1443258311",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "modulation",
+      "sillage"
+    ],
+    "legacyModulationId": 21
+  },
+  {
+    "id": "blur::tender",
+    "title": "Tender",
+    "artist": "Blur",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "blur::song 2",
+    "title": "Song 2",
+    "artist": "Blur",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "blur::the universal",
+    "title": "The Universal",
+    "artist": "Blur",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "pulp::common people",
+    "title": "Common People",
+    "artist": "Pulp",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "pulp::disco 2000",
+    "title": "Disco 2000",
+    "artist": "Pulp",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "suede::beautiful ones",
+    "title": "Beautiful Ones",
+    "artist": "Suede",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "new order::regret",
+    "title": "Regret",
+    "artist": "New Order",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "depeche mode::enjoy the silence",
+    "title": "Enjoy the Silence",
+    "artist": "Depeche Mode",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "indie",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "depeche mode::policy of truth",
+    "title": "Policy of Truth",
+    "artist": "Depeche Mode",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "indie",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "the smiths::there is a light that never goes out",
+    "title": "There Is a Light That Never Goes Out",
+    "artist": "The Smiths",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "morrissey::everyday is like sunday",
+    "title": "Everyday Is Like Sunday",
+    "artist": "Morrissey",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "new order::blue monday",
+    "title": "Blue Monday",
+    "artist": "New Order",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "new order::true faith",
+    "title": "True Faith",
+    "artist": "New Order",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "new order::bizarre love triangle",
+    "title": "Bizarre Love Triangle",
+    "artist": "New Order",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "m83::midnight city",
+    "title": "Midnight City",
+    "artist": "M83",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "m83::reunion",
+    "title": "Reunion",
+    "artist": "M83",
+    "album": "Hurry up, We're Dreaming",
+    "isrc": "GB55H1100003",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "depeche mode::personal jesus",
+    "title": "Personal Jesus",
+    "artist": "Depeche Mode",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "indie",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "depeche mode::never let me down again",
+    "title": "Never Let Me Down Again",
+    "artist": "Depeche Mode",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "indie",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "depeche mode::strangelove",
+    "title": "Strangelove",
+    "artist": "Depeche Mode",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "indie",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "pet shop boys::west end girls",
+    "title": "West End Girls",
+    "artist": "Pet Shop Boys",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "pet shop boys::it s a sin",
+    "title": "It's a Sin",
+    "artist": "Pet Shop Boys",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "the cure::just like heaven",
+    "title": "Just Like Heaven",
+    "artist": "The Cure",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "the cure::lovesong",
+    "title": "Lovesong",
+    "artist": "The Cure",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "the cure::in between days",
+    "title": "In Between Days",
+    "artist": "The Cure",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "tears for fears::everybody wants to rule the world",
+    "title": "Everybody Wants to Rule the World",
+    "artist": "Tears for Fears",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "tears for fears::head over heels",
+    "title": "Head Over Heels",
+    "artist": "Tears for Fears",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "simple minds::don t you forget about me",
+    "title": "Don't You (Forget About Me)",
+    "artist": "Simple Minds",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "simple minds::alive and kicking",
+    "title": "Alive and Kicking",
+    "artist": "Simple Minds",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "the human league::don t you want me",
+    "title": "Don't You Want Me",
+    "artist": "The Human League",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "eurythmics::sweet dreams are made of this",
+    "title": "Sweet Dreams (Are Made of This)",
+    "artist": "Eurythmics",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "ultravox::vienna",
+    "title": "Vienna",
+    "artist": "Ultravox",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "the chemical brothers::galvanize",
+    "title": "Galvanize",
+    "artist": "The Chemical Brothers",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "the chemical brothers::hey boy hey girl",
+    "title": "Hey Boy Hey Girl",
+    "artist": "The Chemical Brothers",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "daft punk::instant crush",
+    "title": "Instant Crush",
+    "artist": "Daft Punk",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "daft punk::get lucky",
+    "title": "Get Lucky",
+    "artist": "Daft Punk",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "underworld::born slippy nuxx",
+    "title": "Born Slippy .NUXX",
+    "artist": "Underworld",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "foo fighters::everlong",
+    "title": "Everlong",
+    "artist": "Foo Fighters",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "foo fighters::times like these",
+    "title": "Times Like These",
+    "artist": "Foo Fighters",
+    "album": "One By One (Deluxe Edition)",
+    "isrc": "USRW30200005",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "foo fighters::walk",
+    "title": "Walk",
+    "artist": "Foo Fighters",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "foo fighters::best of you",
+    "title": "Best of You",
+    "artist": "Foo Fighters",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "foo fighters::the pretender",
+    "title": "The Pretender",
+    "artist": "Foo Fighters",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "foo fighters::my hero",
+    "title": "My Hero",
+    "artist": "Foo Fighters",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "foo fighters::learn to fly",
+    "title": "Learn to Fly",
+    "artist": "Foo Fighters",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "foo fighters::aurora",
+    "title": "Aurora",
+    "artist": "Foo Fighters",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "muse::starlight",
+    "title": "Starlight",
+    "artist": "Muse",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "muse::uprising",
+    "title": "Uprising",
+    "artist": "Muse",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "muse::knights of cydonia",
+    "title": "Knights of Cydonia",
+    "artist": "Muse",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "muse::plug in baby",
+    "title": "Plug In Baby",
+    "artist": "Muse",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "the killers::all these things that i ve done",
+    "title": "All These Things That I've Done",
+    "artist": "The Killers",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "indie",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "the killers::mr brightside",
+    "title": "Mr. Brightside",
+    "artist": "The Killers",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "indie",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "the killers::when you were young",
+    "title": "When You Were Young",
+    "artist": "The Killers",
+    "album": "Sam's Town",
+    "isrc": "USUM70605164",
+    "url": "",
+    "kind": "indie",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "kings of leon::sex on fire",
+    "title": "Sex on Fire",
+    "artist": "Kings of Leon",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "indie",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "arctic monkeys::do i wanna know",
+    "title": "Do I Wanna Know?",
+    "artist": "Arctic Monkeys",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "indie",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "arctic monkeys::r u mine",
+    "title": "R U Mine?",
+    "artist": "Arctic Monkeys",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "indie",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "royal blood::figure it out",
+    "title": "Figure It Out",
+    "artist": "Royal Blood",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "queens of the stone age::no one knows",
+    "title": "No One Knows",
+    "artist": "Queens of the Stone Age",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "ac dc::thunderstruck",
+    "title": "Thunderstruck",
+    "artist": "AC/DC",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "red hot chili peppers::can t stop",
+    "title": "Can't Stop",
+    "artist": "Red Hot Chili Peppers",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "red hot chili peppers::californication",
+    "title": "Californication",
+    "artist": "Red Hot Chili Peppers",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "the smashing pumpkins::1979",
+    "title": "1979",
+    "artist": "The Smashing Pumpkins",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "the doors::roadhouse blues",
+    "title": "Roadhouse Blues",
+    "artist": "The Doors",
+    "album": "Morrison Hotel",
+    "isrc": "USRH12200762",
+    "url": "",
+    "kind": "indie",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "max richter::on the nature of daylight",
+    "title": "On the Nature of Daylight",
+    "artist": "Max Richter",
+    "album": "The Blue Notebooks",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/on-the-nature-of-daylight/1368089903?i=1368090483",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "modulation",
+      "sillage"
+    ],
+    "legacyModulationId": 83
+  },
+  {
+    "id": "max richter::vladimir s blues",
+    "title": "Vladimir's Blues",
+    "artist": "Max Richter",
+    "album": "The Blue Notebooks",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "max richter::written on the sky",
+    "title": "Written on the Sky",
+    "artist": "Max Richter",
+    "album": "The Blue Notebooks",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "max richter::november",
+    "title": "November",
+    "artist": "Max Richter",
+    "album": "Memoryhouse",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "max richter::horizon variations",
+    "title": "Horizon Variations",
+    "artist": "Max Richter",
+    "album": "The Blue Notebooks",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/horizon-variations/1775435073?i=1775435321",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "modulation",
+      "sillage"
+    ],
+    "legacyModulationId": 5
+  },
+  {
+    "id": "max richter::infra 5",
+    "title": "Infra 5",
+    "artist": "Max Richter",
+    "album": "Infra",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "max richter::dream 3 in the midst of my life",
+    "title": "Dream 3 (in the midst of my life)",
+    "artist": "Max Richter",
+    "album": "From Sleep",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/dream-3-in-the-midst-of-my-life/1480784968?i=1480784985",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "modulation",
+      "sillage"
+    ],
+    "legacyModulationId": 94
+  },
+  {
+    "id": "max richter::spring 1",
+    "title": "Spring 1",
+    "artist": "Max Richter",
+    "album": "Recomposed by Max Richter: Vivaldi, The Four Seasons",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "max richter::the departure",
+    "title": "The Departure",
+    "artist": "Max Richter",
+    "album": "The Leftovers: Season 1",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "max richter::a catalogue of afternoons",
+    "title": "A Catalogue of Afternoons",
+    "artist": "Max Richter",
+    "album": "The Blue Notebooks",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "hilary hahn cory smythe::mercy",
+    "title": "Mercy",
+    "artist": "Hilary Hahn & Cory Smythe",
+    "album": "In 27 Pieces: the Hilary Hahn Encores",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "max richter::path 5 delta",
+    "title": "Path 5 (delta)",
+    "artist": "Max Richter",
+    "album": "From Sleep",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "nils frahm::ambre",
+    "title": "Ambre",
+    "artist": "Nils Frahm",
+    "album": "Wintermusik",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/ambre/1451164642?i=1451164643",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "modulation",
+      "sillage"
+    ],
+    "legacyModulationId": 1
+  },
+  {
+    "id": "nils frahm::says",
+    "title": "Says",
+    "artist": "Nils Frahm",
+    "album": "Spaces",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/says/1453571326?i=1453571333",
+    "kind": "neo",
+    "level": 1,
+    "vocal": 0,
+    "sources": [
+      "modulation",
+      "sillage"
+    ],
+    "legacyModulationId": 48
+  },
+  {
+    "id": "nils frahm::familiar",
+    "title": "Familiar",
+    "artist": "Nils Frahm",
+    "album": "Felt",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "nils frahm::hammers",
+    "title": "Hammers",
+    "artist": "Nils Frahm",
+    "album": "Spaces",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/hammers/1451166665?i=1451166680",
+    "kind": "neo",
+    "level": 1,
+    "vocal": 0,
+    "sources": [
+      "modulation",
+      "sillage"
+    ],
+    "legacyModulationId": 91
+  },
+  {
+    "id": "nils frahm::my friend the forest",
+    "title": "My Friend the Forest",
+    "artist": "Nils Frahm",
+    "album": "All Melody",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/my-friend-the-forest/1451143439?i=1451143716",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "modulation",
+      "sillage"
+    ],
+    "legacyModulationId": 51
+  },
+  {
+    "id": "nils frahm::them",
+    "title": "Them",
+    "artist": "Nils Frahm",
+    "album": "Music for the Motion Picture Victoria",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/them/1451075515?i=1451076125",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "modulation",
+      "sillage"
+    ],
+    "legacyModulationId": 7
+  },
+  {
+    "id": "nils frahm::some",
+    "title": "Some",
+    "artist": "Nils Frahm",
+    "album": "Solo",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/some/1451164610?i=1451164799",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "modulation",
+      "sillage"
+    ],
+    "legacyModulationId": 82
+  },
+  {
+    "id": "nils frahm::re",
+    "title": "Re",
+    "artist": "Nils Frahm",
+    "album": "Screws",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/re/1451159043?i=1451159056",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "modulation",
+      "sillage"
+    ],
+    "legacyModulationId": 100
+  },
+  {
+    "id": "nils frahm::tristana",
+    "title": "Tristana",
+    "artist": "Nils Frahm",
+    "album": "Wintermusik",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "nils frahm::you",
+    "title": "You",
+    "artist": "Nils Frahm",
+    "album": "Screws",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "nils frahm::because this must be",
+    "title": "Because This Must Be",
+    "artist": "Nils Frahm",
+    "album": "The Bells",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "nils frahm::four hands",
+    "title": "Four Hands",
+    "artist": "Nils Frahm",
+    "album": "Solo Remains",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "nils frahm::over there it s raining",
+    "title": "Over There, It's Raining",
+    "artist": "Nils Frahm",
+    "album": "The Bells",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "olafur arnalds::near light",
+    "title": "Near Light",
+    "artist": "Ólafur Arnalds",
+    "album": "Living Room Songs",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/near-light/1451058763?i=1451058775",
+    "kind": "neo",
+    "level": 1,
+    "vocal": 0,
+    "sources": [
+      "modulation",
+      "sillage"
+    ],
+    "legacyModulationId": 4
+  },
+  {
+    "id": "olafur arnalds::saman",
+    "title": "saman",
+    "artist": "Ólafur Arnalds",
+    "album": "re:member",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/saman/1390704147?i=1390704156",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "modulation",
+      "sillage"
+    ],
+    "legacyModulationId": 99
+  },
+  {
+    "id": "olafur arnalds::only the winds",
+    "title": "Only the Winds",
+    "artist": "Ólafur Arnalds",
+    "album": "For Now I Am Winter",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "olafur arnalds::3055",
+    "title": "3055",
+    "artist": "Ólafur Arnalds",
+    "album": "Eulogy for Evolution",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "olafur arnalds::woven song",
+    "title": "Woven Song",
+    "artist": "Ólafur Arnalds",
+    "album": "some kind of peace",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "olafur arnalds::doria",
+    "title": "Doria",
+    "artist": "Ólafur Arnalds",
+    "album": "Island Songs",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "olafur arnalds::so far feat arnor dan",
+    "title": "So Far (feat. Arnor Dan)",
+    "artist": "Ólafur Arnalds",
+    "album": "Broadchurch",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "olafur arnalds nanna::particles",
+    "title": "Particles",
+    "artist": "Ólafur Arnalds & Nanna",
+    "album": "Island Songs",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "olafur arnalds bonobo::loom",
+    "title": "Loom",
+    "artist": "Ólafur Arnalds & Bonobo",
+    "album": "some kind of peace",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/loom/1524005856?i=1524005857",
+    "kind": "neo",
+    "level": 1,
+    "vocal": 0,
+    "sources": [
+      "modulation",
+      "sillage"
+    ],
+    "legacyModulationId": 44
+  },
+  {
+    "id": "hania rani::glass",
+    "title": "Glass",
+    "artist": "Hania Rani",
+    "album": "Esja",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/glass/1578451491?i=1578451932",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "modulation",
+      "sillage"
+    ],
+    "legacyModulationId": 2
+  },
+  {
+    "id": "hania rani::eden",
+    "title": "Eden",
+    "artist": "Hania Rani",
+    "album": "Esja",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/eden/1578451491?i=1578451497",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "modulation",
+      "sillage"
+    ],
+    "legacyModulationId": 84
+  },
+  {
+    "id": "hania rani::buka",
+    "title": "Buka",
+    "artist": "Hania Rani",
+    "album": "Home",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "hania rani::f major",
+    "title": "F Major",
+    "artist": "Hania Rani",
+    "album": "Home",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "hania rani::leaving",
+    "title": "Leaving",
+    "artist": "Hania Rani",
+    "album": "Home",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "hania rani::sun",
+    "title": "Sun",
+    "artist": "Hania Rani",
+    "album": "Esja",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "hania rani::hawaii oslo",
+    "title": "Hawaii Oslo",
+    "artist": "Hania Rani",
+    "album": "Esja",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "joep beving::sleeping lotus",
+    "title": "Sleeping Lotus",
+    "artist": "Joep Beving",
+    "album": "Solipsism",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "joep beving::ab ovo",
+    "title": "Ab Ovo",
+    "artist": "Joep Beving",
+    "album": "Prehension",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/ab-ovo/1440800001?i=1440800010",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "modulation",
+      "sillage"
+    ],
+    "legacyModulationId": 3
+  },
+  {
+    "id": "joep beving::hanging d",
+    "title": "Hanging D",
+    "artist": "Joep Beving",
+    "album": "Trilogy",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "joep beving::etude",
+    "title": "Etude",
+    "artist": "Joep Beving",
+    "album": "Solipsism",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "joep beving::sol and luna",
+    "title": "Sol and Luna",
+    "artist": "Joep Beving",
+    "album": "Henosis",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "joep beving::for steven",
+    "title": "For Steven",
+    "artist": "Joep Beving",
+    "album": "Solipsism",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "dustin o halloran::we move lightly",
+    "title": "We Move Lightly",
+    "artist": "Dustin O'Halloran",
+    "album": "Like Crazy",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/we-move-lightly/485456519?i=485458057",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "modulation",
+      "sillage"
+    ],
+    "legacyModulationId": 6
+  },
+  {
+    "id": "dustin o halloran::opus 55",
+    "title": "Opus 55",
+    "artist": "Dustin O'Halloran",
+    "album": "Lumiere",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "dustin o halloran::opus 56",
+    "title": "Opus 56",
+    "artist": "Dustin O'Halloran",
+    "album": "Silfur",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "modulation",
+      "sillage"
+    ],
+    "legacyModulationId": 98
+  },
+  {
+    "id": "johann johannsson::flight from the city",
+    "title": "Flight from the City",
+    "artist": "Jóhann Jóhannsson",
+    "album": "Orphée",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/flight-from-the-city/1440775286?i=1440775291",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "modulation",
+      "sillage"
+    ],
+    "legacyModulationId": 96
+  },
+  {
+    "id": "johann johannsson::a model of the universe",
+    "title": "A Model of the Universe",
+    "artist": "Jóhann Jóhannsson",
+    "album": "The Theory of Everything",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "johann johannsson::the sun s gone dim and the sky s turned black",
+    "title": "The Sun's Gone Dim and the Sky's Turned Black",
+    "artist": "Jóhann Jóhannsson",
+    "album": "The Sun’s Gone Dim and the Sky’s Turned Black",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "a winged victory for the sullen::steep hills of vicodin tears",
+    "title": "Steep Hills of Vicodin Tears",
+    "artist": "A Winged Victory for the Sullen",
+    "album": "A Winged Victory for the Sullen",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/steep-hills-of-vicodin-tears/1451144470?i=1451144478",
+    "kind": "neo",
+    "level": 1,
+    "vocal": 0,
+    "sources": [
+      "modulation",
+      "sillage"
+    ],
+    "legacyModulationId": 8
+  },
+  {
+    "id": "a winged victory for the sullen::requiem for the static king pt 1",
+    "title": "Requiem for the Static King, Pt. 1",
+    "artist": "A Winged Victory for the Sullen",
+    "album": "A Winged Victory for the Sullen",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "a winged victory for the sullen::we played some open chords and rejoiced for the earth had circled the sun yet another year",
+    "title": "We Played Some Open Chords and Rejoiced, for the Earth Had Circled the Sun Yet Another Year",
+    "artist": "A Winged Victory for the Sullen",
+    "album": "A Winged Victory for the Sullen",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/we-played-some-open-chords-and-rejoiced-for-the-earth/1844063853?i=1844063854",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "modulation",
+      "sillage"
+    ],
+    "legacyModulationId": 95
+  },
+  {
+    "id": "goldmund::threnody",
+    "title": "Threnody",
+    "artist": "Goldmund",
+    "album": "The Malady of Elegance",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/threnody/1826852764?i=1826852959",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "modulation",
+      "sillage"
+    ],
+    "legacyModulationId": 50
+  },
+  {
+    "id": "goldmund::motion",
+    "title": "Motion",
+    "artist": "Goldmund",
+    "album": "SMM: Context",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "goldmund::in a notebook",
+    "title": "In a Notebook",
+    "artist": "Goldmund",
+    "album": "The Malady of Elegance",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "balmorhea::remembrance",
+    "title": "Remembrance",
+    "artist": "Balmorhea",
+    "album": "All Is Wild, All Is Silent",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/remembrance/379123957?i=379124159",
+    "kind": "neo",
+    "level": 1,
+    "vocal": 0,
+    "sources": [
+      "modulation",
+      "sillage"
+    ],
+    "legacyModulationId": 9
+  },
+  {
+    "id": "balmorhea::settler",
+    "title": "Settler",
+    "artist": "Balmorhea",
+    "album": "All Is Wild, All Is Silent",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "balmorhea::baleen morning",
+    "title": "Baleen Morning",
+    "artist": "Balmorhea",
+    "album": "Rivers Arms",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "eluvium::prelude for time feelers",
+    "title": "Prelude for Time Feelers",
+    "artist": "Eluvium",
+    "album": "Copia",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/prelude-for-time-feelers/319144519?i=319144554",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "modulation",
+      "sillage"
+    ],
+    "legacyModulationId": 86
+  },
+  {
+    "id": "eluvium::indoor swimming at the space station",
+    "title": "Indoor Swimming At the Space Station",
+    "artist": "Eluvium",
+    "album": "Copia",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "brian eno::an ending ascent",
+    "title": "An Ending (Ascent)",
+    "artist": "Brian Eno",
+    "album": "Apollo",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/an-ending-ascent/1462265861?i=1462266178",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "modulation",
+      "sillage"
+    ],
+    "legacyModulationId": 87
+  },
+  {
+    "id": "brian eno::1 1",
+    "title": "1/1",
+    "artist": "Brian Eno",
+    "album": "Ambient 1: Music for Airports",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "ryuichi sakamoto::aqua",
+    "title": "Aqua",
+    "artist": "Ryuichi Sakamoto",
+    "album": "BTTB",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/aqua/1717829350?i=1717830675",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "modulation",
+      "sillage"
+    ],
+    "legacyModulationId": 97
+  },
+  {
+    "id": "ryuichi sakamoto::merry christmas mr lawrence",
+    "title": "Merry Christmas Mr. Lawrence",
+    "artist": "Ryuichi Sakamoto",
+    "album": "Merry Christmas, Mr. Lawrence",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "ryuichi sakamoto::andata",
+    "title": "andata",
+    "artist": "Ryuichi Sakamoto",
+    "album": "async",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "ludovico einaudi::una mattina",
+    "title": "Una mattina",
+    "artist": "Ludovico Einaudi",
+    "album": "Una mattina",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "ludovico einaudi::le onde",
+    "title": "Le Onde",
+    "artist": "Ludovico Einaudi",
+    "album": "Le Onde",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "federico albanese::the blue hour",
+    "title": "The Blue Hour",
+    "artist": "Federico Albanese",
+    "album": "The Blue Hour",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "fabrizio paterlini::somehow familiar",
+    "title": "Somehow Familiar",
+    "artist": "Fabrizio Paterlini",
+    "album": "The Art of the Piano",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "peter broderick::a snowflake",
+    "title": "A Snowflake",
+    "artist": "Peter Broderick",
+    "album": "Float",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "hammock::turn away and return",
+    "title": "Turn Away and Return",
+    "artist": "Hammock",
+    "album": "Everything and Nothing",
+    "isrc": "",
+    "url": "",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "sillage"
+    ]
+  },
+  {
+    "id": "the cinematic orchestra::arrival of the birds",
+    "title": "Arrival of the Birds",
+    "artist": "The Cinematic Orchestra",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/arrival-of-the-birds/712881420?i=712881575",
+    "kind": "neo",
+    "level": 1,
+    "vocal": 0,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 10
+  },
+  {
+    "id": "the cinematic orchestra::transformation",
+    "title": "Transformation",
+    "artist": "The Cinematic Orchestra",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/transformation/712881420?i=712881599",
+    "kind": "neo",
+    "level": 1,
+    "vocal": 0,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 11
+  },
+  {
+    "id": "elbow::mirrorball",
+    "title": "Mirrorball",
+    "artist": "Elbow",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/mirrorball/1440761104?i=1440761326",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 12
+  },
+  {
+    "id": "doves::firesuite",
+    "title": "Firesuite",
+    "artist": "Doves",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/firesuite/724350250?i=724350323",
+    "kind": "neo",
+    "level": 2,
+    "vocal": 0,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 13
+  },
+  {
+    "id": "doves::sea song",
+    "title": "Sea Song",
+    "artist": "Doves",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/sea-song/724350250?i=724350338",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 14
+  },
+  {
+    "id": "radiohead::daydreaming",
+    "title": "Daydreaming",
+    "artist": "Radiohead",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/daydreaming/1111577743?i=1111577949",
+    "kind": "bridge",
+    "level": 1,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 15
+  },
+  {
+    "id": "the verve::velvet morning",
+    "title": "Velvet Morning",
+    "artist": "The Verve",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/velvet-morning/1443258184?i=1443258338",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 17
+  },
+  {
+    "id": "richard ashcroft::break the night with colour",
+    "title": "Break the Night With Colour",
+    "artist": "Richard Ashcroft",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/break-the-night-with-colour/715770007?i=715770162",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 18
+  },
+  {
+    "id": "noel gallagher s high flying birds::if i had a gun",
+    "title": "If I Had a Gun...",
+    "artist": "Noel Gallagher's High Flying Birds",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/if-i-had-a-gun/1561288142?i=1561288926",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 19
+  },
+  {
+    "id": "oasis::talk tonight remastered",
+    "title": "Talk Tonight (Remastered)",
+    "artist": "Oasis",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/talk-tonight-remastered/1525933483?i=1525933851",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 20
+  },
+  {
+    "id": "oasis::cast no shadow unplugged",
+    "title": "Cast No Shadow (Unplugged)",
+    "artist": "Oasis",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/cast-no-shadow-unplugged/1821192759?i=1821193279",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 22
+  },
+  {
+    "id": "travis::writing to reach you",
+    "title": "Writing to Reach You",
+    "artist": "Travis",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/writing-to-reach-you/1458137859?i=1458138285",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 23
+  },
+  {
+    "id": "coldplay::sparks",
+    "title": "Sparks",
+    "artist": "Coldplay",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/sparks/1122782080?i=1122782281",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 25
+  },
+  {
+    "id": "turin brakes::underdog save me",
+    "title": "Underdog (Save Me)",
+    "artist": "Turin Brakes",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/underdog-save-me/1663632527?i=1663632532",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 26
+  },
+  {
+    "id": "doves::kingdom of rust",
+    "title": "Kingdom of Rust",
+    "artist": "Doves",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/kingdom-of-rust/721269518?i=721269724",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 27
+  },
+  {
+    "id": "elbow::one day like this",
+    "title": "One Day Like This",
+    "artist": "Elbow",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/one-day-like-this/1443066830?i=1443067285",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 28
+  },
+  {
+    "id": "richard ashcroft::a song for the lovers",
+    "title": "A Song for the Lovers",
+    "artist": "Richard Ashcroft",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/a-song-for-the-lovers/725843476?i=725843543",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 30
+  },
+  {
+    "id": "oasis::the masterplan",
+    "title": "The Masterplan",
+    "artist": "Oasis",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/the-masterplan/1517453693?i=1517454194",
+    "kind": "britpop",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 31
+  },
+  {
+    "id": "the stone roses::waterfall",
+    "title": "Waterfall",
+    "artist": "The Stone Roses",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/waterfall/325190080?i=325190123",
+    "kind": "britpop",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 32
+  },
+  {
+    "id": "the charlatans::north country boy",
+    "title": "North Country Boy",
+    "artist": "The Charlatans",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/north-country-boy/1450132281?i=1450132284",
+    "kind": "britpop",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 33
+  },
+  {
+    "id": "pulp::something changed",
+    "title": "Something Changed",
+    "artist": "Pulp",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/something-changed/1440666501?i=1440666927",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 34
+  },
+  {
+    "id": "blur francoise hardy::to the end la comedie",
+    "title": "To the End (La Comedie)",
+    "artist": "Blur & Françoise Hardy",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/to-the-end-la-comedie/699616785?i=699617881",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 35
+  },
+  {
+    "id": "the verve::space and time",
+    "title": "Space and Time",
+    "artist": "The Verve",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/space-and-time/1440885112?i=1440885232",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 36
+  },
+  {
+    "id": "spiritualized::ladies and gentlemen we are floating in space",
+    "title": "Ladies and gentlemen we are floating in space",
+    "artist": "Spiritualized",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/ladies-and-gentlemen-we-are-floating-in-space/1502476612?i=1502476617",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 37
+  },
+  {
+    "id": "unkle::lonely soul",
+    "title": "Lonely Soul",
+    "artist": "UNKLE",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/lonely-soul/1372071375?i=1372072292",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 38
+  },
+  {
+    "id": "the cinematic orchestra::breathe",
+    "title": "Breathe",
+    "artist": "The Cinematic Orchestra",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/breathe/416274689?i=416274761",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 39
+  },
+  {
+    "id": "mogwai::take me somewhere nice",
+    "title": "Take Me Somewhere Nice",
+    "artist": "Mogwai",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/take-me-somewhere-nice/273164911?i=273165182",
+    "kind": "bridge",
+    "level": 1,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 40
+  },
+  {
+    "id": "mogwai::auto rock",
+    "title": "Auto Rock",
+    "artist": "Mogwai",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/auto-rock/169727955?i=169727958",
+    "kind": "neo",
+    "level": 1,
+    "vocal": 0,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 41
+  },
+  {
+    "id": "explosions in the sky::your hand in mine",
+    "title": "Your Hand in Mine",
+    "artist": "Explosions in the Sky",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/your-hand-in-mine/671801566?i=671802270",
+    "kind": "neo",
+    "level": 1,
+    "vocal": 0,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 42
+  },
+  {
+    "id": "sigur ros::samskeyti live",
+    "title": "Samskeyti (Live)",
+    "artist": "Sigur Rós",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/samskeyti-live/710454556?i=710454587",
+    "kind": "neo",
+    "level": 1,
+    "vocal": 0,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 43
+  },
+  {
+    "id": "kiasmos::looped",
+    "title": "Looped",
+    "artist": "Kiasmos",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/looped/1451077320?i=1451077338",
+    "kind": "neo",
+    "level": 2,
+    "vocal": 0,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 45
+  },
+  {
+    "id": "rival consoles::untravel",
+    "title": "Untravel",
+    "artist": "Rival Consoles",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/untravel/1451157384?i=1451157883",
+    "kind": "neo",
+    "level": 1,
+    "vocal": 0,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 46
+  },
+  {
+    "id": "jon hopkins::abandon window remaster 2023",
+    "title": "Abandon Window (Remaster 2023)",
+    "artist": "Jon Hopkins",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/abandon-window-remaster-2023/1688995695?i=1688996000",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 47
+  },
+  {
+    "id": "hania rani::buka live from studio s2",
+    "title": "Buka (Live from Studio S2)",
+    "artist": "Hania Rani",
+    "album": "",
+    "isrc": "",
+    "url": "",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 49
+  },
+  {
+    "id": "ryuichi sakamoto::energy flow",
+    "title": "Energy Flow",
+    "artist": "Ryuichi Sakamoto",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/energy-flow/1594653981?i=1594654396",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 52
+  },
+  {
+    "id": "the album leaf::window",
+    "title": "Window",
+    "artist": "The Album Leaf",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/window/715661761?i=715662012",
+    "kind": "neo",
+    "level": 1,
+    "vocal": 0,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 53
+  },
+  {
+    "id": "sigur ros::staralfur",
+    "title": "Starálfur",
+    "artist": "Sigur Rós",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/star%C3%A1lfur/1447442814?i=1447442939",
+    "kind": "bridge",
+    "level": 1,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 54
+  },
+  {
+    "id": "elbow::lippy kids",
+    "title": "Lippy Kids",
+    "artist": "Elbow",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/lippy-kids/1445181111?i=1445181372",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 58
+  },
+  {
+    "id": "doves::the cedar room",
+    "title": "The Cedar Room",
+    "artist": "Doves",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/the-cedar-room/724350250?i=724350396",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 59
+  },
+  {
+    "id": "the verve::rather be",
+    "title": "Rather Be",
+    "artist": "The Verve",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/rather-be/716344411?i=716345087",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 60
+  },
+  {
+    "id": "richard ashcroft::music is power",
+    "title": "Music Is Power",
+    "artist": "Richard Ashcroft",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/music-is-power/723614141?i=723614312",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 61
+  },
+  {
+    "id": "oasis::live forever remastered",
+    "title": "Live Forever (Remastered)",
+    "artist": "Oasis",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/live-forever-remastered/1525936190?i=1525936196",
+    "kind": "britpop",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 62
+  },
+  {
+    "id": "noel gallagher s high flying birds::aka what a life",
+    "title": "AKA… What A Life!",
+    "artist": "Noel Gallagher's High Flying Birds",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/aka-what-a-life/1517614387?i=1517614567",
+    "kind": "britpop",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 63
+  },
+  {
+    "id": "the stone roses::i wanna be adored",
+    "title": "I Wanna Be Adored",
+    "artist": "The Stone Roses",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/i-wanna-be-adored/325539526?i=325539560",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 64
+  },
+  {
+    "id": "the charlatans::the only one i know 12 mix",
+    "title": "The Only One I Know (12\" Mix)",
+    "artist": "The Charlatans",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/the-only-one-i-know-12-mix/368054919?i=368055535",
+    "kind": "britpop",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 65
+  },
+  {
+    "id": "blur::this is a low",
+    "title": "This Is a Low",
+    "artist": "Blur",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/this-is-a-low/699665183?i=699665849",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 66
+  },
+  {
+    "id": "pulp::common people full length version",
+    "title": "Common People (Full Length Version)",
+    "artist": "Pulp",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/common-people-full-length-version/1444021184?i=1444021190",
+    "kind": "britpop",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 67
+  },
+  {
+    "id": "oasis::don t look back in anger remastered",
+    "title": "Don't Look Back in Anger (Remastered)",
+    "artist": "Oasis",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/dont-look-back-in-anger-remastered/1525933483?i=1525933492",
+    "kind": "britpop",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 68
+  },
+  {
+    "id": "doves::there goes the fear",
+    "title": "There Goes the Fear",
+    "artist": "Doves",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/there-goes-the-fear/724582643?i=724582874",
+    "kind": "britpop",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 70
+  },
+  {
+    "id": "richard ashcroft::hold on",
+    "title": "Hold On",
+    "artist": "Richard Ashcroft",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/hold-on/1886712037?i=1886712271",
+    "kind": "britpop",
+    "level": 4,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 71
+  },
+  {
+    "id": "travis::sing",
+    "title": "Sing",
+    "artist": "Travis",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/sing/1458139602?i=1458139607",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 73
+  },
+  {
+    "id": "keane::everybody s changing",
+    "title": "Everybody's Changing",
+    "artist": "Keane",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/everybodys-changing/1440798025?i=1440798481",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 74
+  },
+  {
+    "id": "coldplay::don t panic",
+    "title": "Don't Panic",
+    "artist": "Coldplay",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/dont-panic/700064385?i=700064501",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 75
+  },
+  {
+    "id": "elbow::magnificent she says",
+    "title": "Magnificent (She Says)",
+    "artist": "Elbow",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/magnificent-she-says/1442255942?i=1442256162",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 76
+  },
+  {
+    "id": "the verve::history 2016 remastered",
+    "title": "History (2016 Remastered)",
+    "artist": "The Verve",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/history-2016-remastered/1442287322?i=1442288198",
+    "kind": "britpop",
+    "level": 3,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 77
+  },
+  {
+    "id": "spiritualized::broken heart",
+    "title": "Broken Heart",
+    "artist": "Spiritualized",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/broken-heart/1502476612?i=1502476767",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 78
+  },
+  {
+    "id": "mogwai::ritchie sacramento",
+    "title": "Ritchie Sacramento",
+    "artist": "Mogwai",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/ritchie-sacramento/1535337264?i=1535337269",
+    "kind": "bridge",
+    "level": 2,
+    "vocal": 1,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 79
+  },
+  {
+    "id": "olafur arnalds::re member",
+    "title": "re:member",
+    "artist": "Ólafur Arnalds",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/re-member/1390704147?i=1390704153",
+    "kind": "neo",
+    "level": 1,
+    "vocal": 0,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 81
+  },
+  {
+    "id": "helios::bless this morning year",
+    "title": "Bless This Morning Year",
+    "artist": "Helios",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/bless-this-morning-year/387546921?i=387546941",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 85
+  },
+  {
+    "id": "hammock::i can almost see you",
+    "title": "I Can Almost See You",
+    "artist": "Hammock",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/i-can-almost-see-you/1577259485?i=1577259936",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 88
+  },
+  {
+    "id": "loscil::endless falls",
+    "title": "Endless Falls",
+    "artist": "Loscil",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/endless-falls/348748603?i=348748604",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 89
+  },
+  {
+    "id": "goldmund::light",
+    "title": "Light",
+    "artist": "Goldmund",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/light/377916506?i=377916524",
+    "kind": "neo",
+    "level": 0,
+    "vocal": 0,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 90
+  },
+  {
+    "id": "rival consoles::recovery",
+    "title": "Recovery",
+    "artist": "Rival Consoles",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/recovery/1451073712?i=1451074694",
+    "kind": "neo",
+    "level": 2,
+    "vocal": 0,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 92
+  },
+  {
+    "id": "jon hopkins::light through the veins",
+    "title": "Light Through the Veins",
+    "artist": "Jon Hopkins",
+    "album": "",
+    "isrc": "",
+    "url": "https://music.apple.com/fr/album/light-through-the-veins/1541203376?i=1541203600",
+    "kind": "neo",
+    "level": 1,
+    "vocal": 0,
+    "sources": [
+      "modulation"
+    ],
+    "legacyModulationId": 93
+  }
+]
