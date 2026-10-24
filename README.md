@@ -11,3 +11,7 @@ PWA quotidienne connectée à Gmail et Google Agenda via Netlify Functions et Go
 5. Ouvrir la PWA sur iPhone et saisir le code d’accès défini pour le site.
 
 Les données Gmail et Agenda ne sont pas intégrées au code du site.
+
+## APOLLON / Vercel
+
+Le site statique est publié depuis `public/` (Output Directory Vercel : `public`). L'application principale est `/` et le sondage musical APOLLON est accessible à `/apollon.html`.
