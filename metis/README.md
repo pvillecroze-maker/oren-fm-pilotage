@@ -17,3 +17,6 @@ Adresse Sheets officielle sheets.googleapis.com/v4 ; erreurs identifiées par se
 
 ## Correctif 4.3
 Chargement initial et actualisation des tâches depuis les colonnes A:Q de MATRICE MOBILE, avec priorités, statuts, échéances et temps. Conservation des tâches locales absentes du classeur. Les libellés « Ouvrir » ne sont pas transformés en faux liens. Une panne de lecture de sauvegarde Drive ne bloque plus le chargement Sheets.
+
+## Correctif 4.3.1
+La matrice masque par défaut les tâches terminées et les exclut des compteurs de quadrants. Filtres À traiter / Terminées / Toutes les tâches. Aucune suppression de données.
