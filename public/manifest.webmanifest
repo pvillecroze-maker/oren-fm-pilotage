@@ -1,13 +1,13 @@
 {
-  "name": "MÉTIS — OLYMPOS | OREN",
-  "short_name": "MÉTIS",
-  "start_url": "/janus.html",
+  "name": "JANUS — Portail OREN",
+  "short_name": "JANUS",
+  "start_url": "/janus.html?v=2",
   "scope": "/",
   "display": "standalone",
   "background_color": "#060e19",
   "theme_color": "#07111b",
   "lang": "fr",
-  "description": "Pilotage, musique et veille dans une interface unifiée.",
+  "description": "Portail de la mythologie numérique OREN : MÉTIS, ARGOS, OLYMPOS et APOLLON.",
   "icons": [
     {
       "src": "/icon-192.png",
@@ -19,5 +19,6 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ]
+  ],
+  "id": "/janus.html"
 }
