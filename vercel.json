@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "framework": null,
+  "buildCommand": "mkdir -p dist && cp -R public/. dist/",
+  "outputDirectory": "dist"
+}
