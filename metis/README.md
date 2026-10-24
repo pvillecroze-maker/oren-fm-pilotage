@@ -11,3 +11,6 @@ PWA privée : les données sont conservées dans le navigateur et dans les servi
 - Connecter Google sur chaque appareil. Activer les API Calendar, Gmail, Drive et Sheets ; autoriser l’origine HTTPS de production dans le client OAuth.
 
 Déploiement : dossier `metis` du dépôt oren-fm-pilotage vers le projet Vercel metis-oren-patrick-os, sans compilation. Les sources historiques Netlify restent distinctes.
+
+## Correctif 4.2.1
+Adresse Sheets officielle sheets.googleapis.com/v4 ; erreurs identifiées par service, délai maximal de requête de 20 secondes et absence de relance automatique des écritures non confirmées. Tests de routage, réseau, expiration et refus API ajoutés.

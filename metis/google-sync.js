@@ -12,19 +12,44 @@ const fingerprint=()=>JSON.stringify(payload());
 function status(s){message=s;const el=document.getElementById('google-status');if(el)el.textContent=s+(last?' · Dernière synchronisation : '+new Date(last).toLocaleString('fr-FR'):'');}
 const card=document.createElement('section');card.className='settingscard';card.style.margin='16px 20px';card.innerHTML='<h3>Google · Synchronisation privée</h3><p id="google-status" role="status" aria-live="polite"></p><div class="settingsbuttons"><button class="primary" id="google-connect">Connecter Google</button><button class="secondary" id="google-sync">Actualiser</button><button class="secondary" id="google-disconnect">Déconnecter</button></div><details><summary>Configurer Google</summary><p>Identifiant OAuth public de type application Web. Autoriser cette origine : <code id="google-origin"></code>. Activer les API Gmail, Calendar, Drive et Google Sheets dans ce projet Google.</p><label>Identifiant client Google <input id="google-client" placeholder="…apps.googleusercontent.com" autocomplete="off"></label><button id="google-config">Enregistrer la configuration</button></details><p>Agenda du jour et 30 courriels récents non archivés. Courriels présentés comme éléments à examiner ; aucune tâche créée sans validation. Les statuts des tâches sont enregistrés dans Google Sheets après confirmation. Une copie des données est conservée dans ton espace applicatif Google Drive. Aucun courriel envoyé, aucun rendez-vous modifié.</p>';
 document.body.prepend(card);document.getElementById('google-origin').textContent=location.origin;document.getElementById('google-client').value=localStorage.getItem(CFG)||DEFAULT_CLIENT;status(message);
-async function api(path,opts={}){if(!token||Date.now()>=expires)throw Error('Session Google expirée : touche Connecter Google.');const r=await fetch('https://www.googleapis.com/'+path,{...opts,cache:'no-store',headers:{Authorization:'Bearer '+token,...opts.headers}});if(!r.ok){if(r.status===401){token='';throw Error('Session Google expirée : reconnecte-toi.');}if(r.status===412)throw Error('Modification sur un autre appareil : aucune donnée écrasée. Recharge avant de reprendre.');throw Error('Google refuse la demande ('+r.status+'). Vérifie les API activées et les autorisations.');}return r;}
+function endpoint(path){
+ if(path.startsWith('sheets/'))return {url:'https://sheets.googleapis.com/'+path.slice(7),service:'Google Sheets'};
+ if(path.startsWith('gmail/'))return {url:'https://gmail.googleapis.com/'+path,service:'Gmail'};
+ return {url:'https://www.googleapis.com/'+path,service:path.startsWith('calendar/')?'Google Agenda':'Google Drive'};
+}
+async function api(path,opts={}){
+ if(!token||Date.now()>=expires)throw Error('Session Google expirée : touche Connecter Google.');
+ const {url,service}=endpoint(path);
+ const controller=new AbortController(),timeout=setTimeout(()=>controller.abort(),20000);
+ let r;
+ try{r=await fetch(url,{...opts,signal:controller.signal,cache:'no-store',headers:{Authorization:'Bearer '+token,...opts.headers}});}
+ catch(e){const write=opts.method&&opts.method!=='GET';throw Error(service+' : '+(e.name==='AbortError'?'délai de réponse dépassé.':'connexion réseau impossible.')+(write?' Enregistrement non confirmé : actualise avant de réessayer.':' Réessaie avec Actualiser. Si le problème persiste, ouvre MÉTIS dans Safari.'));}
+ finally{clearTimeout(timeout);}
+ if(!r.ok){
+  if(r.status===401){token='';render();throw Error(service+' : session expirée, reconnecte Google.');}
+  if(r.status===412)throw Error(service+' : modification sur un autre appareil. Actualise avant de reprendre.');
+  let code='';try{const detail=await r.json();code=detail.error?.details?.find(d=>d.reason)?.reason||detail.error?.status||'';}catch(e){}
+  const help=code==='SERVICE_DISABLED'?'Active cette API dans le projet Google Cloud.':r.status===403?'Vérifie les autorisations Google et les API activées.':r.status===404?'Vérifie que le compte connecté a accès au fichier.':'Réessaie dans quelques instants.';
+  throw Error(service+' : erreur '+r.status+(code?' ('+code+')':'')+'. '+help);
+ }
+ return r;
+}
 async function paged(path){let items=[],next='';do{const data=await(await api(path+(next?'&pageToken='+encodeURIComponent(next):''))).json();items.push(...(data.items||[]));next=data.nextPageToken||'';}while(next);return items;}
 async function cloud(){const list=await(await api("drive/v3/files?spaces=appDataFolder&q="+encodeURIComponent("name='metis-state-v4.json' and trashed=false")+'&fields=files(id)&pageSize=100')).json();if(list.files.length>1)throw Error('Plusieurs sauvegardes Google détectées. Synchronisation arrêtée pour protéger tes données.');fileId=list.files[0]?.id||null;if(!fileId)return null;const r=await api('drive/v3/files/'+encodeURIComponent(fileId)+'?alt=media');etag=r.headers.get('etag');const data=await r.json();if(!Array.isArray(data.tasks)||!Array.isArray(data.events)||!Array.isArray(data.mails))throw Error('Sauvegarde distante invalide : copie locale conservée.');return data;}
 function apply(data){Object.assign(state,{tasks:data.tasks,events:data.events,mails:data.mails,snapshot:data.snapshot,updated:data.updated});localStorage.setItem(STORE,JSON.stringify(payload()));render();}
-async function sync(){if(busy)return;busy=true;status('Synchronisation en cours…');try{
+async function sync(){if(busy)return;busy=true;status('MÉTIS 4.2.1 · Lecture Google Drive…');try{
 const before=fingerprint(),remote=await cloud();if(fingerprint()!==before)throw Error('Une modification locale est en cours. Relance Actualiser.');
 if(remote){const remotePrint=JSON.stringify(remote);if(base===null){if(state.tasks.length&&before!==remotePrint){if(!confirm('Une sauvegarde existe sur Google Drive. Charger cette version ? Ta copie locale sera sauvegardée sur cet appareil avant remplacement.'))throw Error('Synchronisation annulée : aucune donnée remplacée.');localStorage.setItem('metis-backup-before-sync',before);}apply(remote);}else if(remotePrint!==base&&before!==base){throw Error('Conflit entre appareils. Exporte ta copie locale puis reconnecte Google pour choisir la version distante.');}else if(remotePrint!==base){apply(remote);}}
+status('MÉTIS 4.2.1 · Lecture Google Sheets…');
 await refreshSheetStatuses();
 const start=new Date();start.setHours(0,0,0,0);const end=new Date(start);end.setDate(end.getDate()+1);
+status('MÉTIS 4.2.1 · Lecture Google Agenda…');
 const ev=await paged('calendar/v3/calendars/primary/events?singleEvents=true&orderBy=startTime&timeMin='+encodeURIComponent(start.toISOString())+'&timeMax='+encodeURIComponent(end.toISOString())+'&maxResults=250');
+status('MÉTIS 4.2.1 · Lecture Gmail…');
 const ml=await(await api('gmail/v1/users/me/messages?maxResults=30&q='+encodeURIComponent('in:inbox newer_than:14d'))).json();
 const mails=[];for(const m of ml.messages||[]){const d=await(await api('gmail/v1/users/me/messages/'+encodeURIComponent(m.id)+'?format=metadata&metadataHeaders=Subject&metadataHeaders=From')).json();mails.push({id:m.id,title:d.payload?.headers?.find(h=>h.name.toLowerCase()==='subject')?.value||'Sans objet',tag:'À examiner',state:d.payload?.headers?.find(h=>h.name.toLowerCase()==='from')?.value||'',url:'https://mail.google.com/mail/u/0/#all/'+m.id});}
 state.events=ev.filter(e=>e.status!=='cancelled').map(e=>({id:e.id,title:e.summary||'Sans titre',time:e.start.dateTime?new Date(e.start.dateTime).toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'}):'Journée',end:e.end.dateTime?new Date(e.end.dateTime).toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'}):'',tag:'Google Agenda',url:e.htmlLink,protected:false,conflict:false}));state.mails=mails;state.snapshot=new Date().toISOString();save();
+status('MÉTIS 4.2.1 · Sauvegarde Google Drive…');
 const data=JSON.stringify(payload());if(fileId){if(!etag)throw Error('Google ne fournit pas de contrôle de version : écriture distante suspendue.');await api('upload/drive/v3/files/'+encodeURIComponent(fileId)+'?uploadType=media',{method:'PATCH',headers:{'Content-Type':'application/json','If-Match':etag},body:data});}else{const boundary='metis_'+crypto.randomUUID();await api('upload/drive/v3/files?uploadType=multipart',{method:'POST',headers:{'Content-Type':'multipart/related; boundary='+boundary},body:'--'+boundary+'\r\nContent-Type: application/json\r\n\r\n'+JSON.stringify({name:'metis-state-v4.json',parents:['appDataFolder']})+'\r\n--'+boundary+'\r\nContent-Type: application/json\r\n\r\n'+data+'\r\n--'+boundary+'--'});}base=data;last=new Date().toISOString();localStorage.setItem('metis-last-sync',last);status('Synchronisé · '+ev.length+' événements · '+mails.length+' courriels');
 }catch(e){status(e.message);}finally{busy=false;}}
 async function refreshSheetStatuses(){
