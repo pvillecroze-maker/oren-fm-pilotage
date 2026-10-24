@@ -1,8 +1,8 @@
 {
-  "name": "MÉTIS — OREN Nightshift | Pilotage privé",
-  "short_name": "MÉTIS",
-  "description": "Matrice Eisenhower et pilotage stratégique privé, hors ligne",
-  "start_url": "./",
+  "name": "JANUS — Portail OREN | MÉTIS",
+  "short_name": "JANUS",
+  "description": "Portail mythologique numérique OREN et accès au pilotage MÉTIS",
+  "start_url": "./janus.html",
   "scope": "./",
   "display": "standalone",
   "theme_color": "#080e1c",
