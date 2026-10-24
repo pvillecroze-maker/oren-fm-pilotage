@@ -37,30 +37,47 @@ async function api(path,opts={}){
 async function paged(path){let items=[],next='';do{const data=await(await api(path+(next?'&pageToken='+encodeURIComponent(next):''))).json();items.push(...(data.items||[]));next=data.nextPageToken||'';}while(next);return items;}
 async function cloud(){const list=await(await api("drive/v3/files?spaces=appDataFolder&q="+encodeURIComponent("name='metis-state-v4.json' and trashed=false")+'&fields=files(id)&pageSize=100')).json();if(list.files.length>1)throw Error('Plusieurs sauvegardes Google détectées. Synchronisation arrêtée pour protéger tes données.');fileId=list.files[0]?.id||null;if(!fileId)return null;const r=await api('drive/v3/files/'+encodeURIComponent(fileId)+'?alt=media');etag=r.headers.get('etag');const data=await r.json();if(!Array.isArray(data.tasks)||!Array.isArray(data.events)||!Array.isArray(data.mails))throw Error('Sauvegarde distante invalide : copie locale conservée.');return data;}
 function apply(data){Object.assign(state,{tasks:data.tasks,events:data.events,mails:data.mails,snapshot:data.snapshot,updated:data.updated});localStorage.setItem(STORE,JSON.stringify(payload()));render();}
-async function sync(){if(busy)return;busy=true;status('MÉTIS 4.2.1 · Lecture Google Drive…');try{
-const before=fingerprint(),remote=await cloud();if(fingerprint()!==before)throw Error('Une modification locale est en cours. Relance Actualiser.');
+async function sync(){if(busy)return;busy=true;status('MÉTIS 4.3 · Lecture Google Drive…');try{
+let driveReady=true;const warnings=[];let remote=null;
+const before=fingerprint();try{remote=await cloud();}catch(e){driveReady=false;warnings.push(e.message);} if(fingerprint()!==before)throw Error('Une modification locale est en cours. Relance Actualiser.');
 if(remote){const remotePrint=JSON.stringify(remote);if(base===null){if(state.tasks.length&&before!==remotePrint){if(!confirm('Une sauvegarde existe sur Google Drive. Charger cette version ? Ta copie locale sera sauvegardée sur cet appareil avant remplacement.'))throw Error('Synchronisation annulée : aucune donnée remplacée.');localStorage.setItem('metis-backup-before-sync',before);}apply(remote);}else if(remotePrint!==base&&before!==base){throw Error('Conflit entre appareils. Exporte ta copie locale puis reconnecte Google pour choisir la version distante.');}else if(remotePrint!==base){apply(remote);}}
-status('MÉTIS 4.2.1 · Lecture Google Sheets…');
-await refreshSheetStatuses();
+status('MÉTIS 4.3 · Lecture Google Sheets…');
+const taskCount=await refreshSheetStatuses();
 const start=new Date();start.setHours(0,0,0,0);const end=new Date(start);end.setDate(end.getDate()+1);
-status('MÉTIS 4.2.1 · Lecture Google Agenda…');
+status('MÉTIS 4.3 · Lecture Google Agenda…');
 const ev=await paged('calendar/v3/calendars/primary/events?singleEvents=true&orderBy=startTime&timeMin='+encodeURIComponent(start.toISOString())+'&timeMax='+encodeURIComponent(end.toISOString())+'&maxResults=250');
-status('MÉTIS 4.2.1 · Lecture Gmail…');
+status('MÉTIS 4.3 · Lecture Gmail…');
 const ml=await(await api('gmail/v1/users/me/messages?maxResults=30&q='+encodeURIComponent('in:inbox newer_than:14d'))).json();
 const mails=[];for(const m of ml.messages||[]){const d=await(await api('gmail/v1/users/me/messages/'+encodeURIComponent(m.id)+'?format=metadata&metadataHeaders=Subject&metadataHeaders=From')).json();mails.push({id:m.id,title:d.payload?.headers?.find(h=>h.name.toLowerCase()==='subject')?.value||'Sans objet',tag:'À examiner',state:d.payload?.headers?.find(h=>h.name.toLowerCase()==='from')?.value||'',url:'https://mail.google.com/mail/u/0/#all/'+m.id});}
 state.events=ev.filter(e=>e.status!=='cancelled').map(e=>({id:e.id,title:e.summary||'Sans titre',time:e.start.dateTime?new Date(e.start.dateTime).toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'}):'Journée',end:e.end.dateTime?new Date(e.end.dateTime).toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'}):'',tag:'Google Agenda',url:e.htmlLink,protected:false,conflict:false}));state.mails=mails;state.snapshot=new Date().toISOString();save();
-status('MÉTIS 4.2.1 · Sauvegarde Google Drive…');
-const data=JSON.stringify(payload());if(fileId){if(!etag)throw Error('Google ne fournit pas de contrôle de version : écriture distante suspendue.');await api('upload/drive/v3/files/'+encodeURIComponent(fileId)+'?uploadType=media',{method:'PATCH',headers:{'Content-Type':'application/json','If-Match':etag},body:data});}else{const boundary='metis_'+crypto.randomUUID();await api('upload/drive/v3/files?uploadType=multipart',{method:'POST',headers:{'Content-Type':'multipart/related; boundary='+boundary},body:'--'+boundary+'\r\nContent-Type: application/json\r\n\r\n'+JSON.stringify({name:'metis-state-v4.json',parents:['appDataFolder']})+'\r\n--'+boundary+'\r\nContent-Type: application/json\r\n\r\n'+data+'\r\n--'+boundary+'--'});}base=data;last=new Date().toISOString();localStorage.setItem('metis-last-sync',last);status('Synchronisé · '+ev.length+' événements · '+mails.length+' courriels');
+status('MÉTIS 4.3 · Sauvegarde Google Drive…');
+const data=JSON.stringify(payload());if(driveReady){if(fileId){if(!etag)throw Error('Google ne fournit pas de contrôle de version : écriture distante suspendue.');await api('upload/drive/v3/files/'+encodeURIComponent(fileId)+'?uploadType=media',{method:'PATCH',headers:{'Content-Type':'application/json','If-Match':etag},body:data});}else{const boundary='metis_'+crypto.randomUUID();await api('upload/drive/v3/files?uploadType=multipart',{method:'POST',headers:{'Content-Type':'multipart/related; boundary='+boundary},body:'--'+boundary+'\r\nContent-Type: application/json\r\n\r\n'+JSON.stringify({name:'metis-state-v4.json',parents:['appDataFolder']})+'\r\n--'+boundary+'\r\nContent-Type: application/json\r\n\r\n'+data+'\r\n--'+boundary+'--'});}base=data;}last=new Date().toISOString();localStorage.setItem('metis-last-sync',last);status(taskCount+' tâches chargées depuis Sheets · '+ev.length+' événements · '+mails.length+' courriels'+(warnings.length?' · Sauvegarde Drive indisponible : '+warnings.join(' ; '):''));
 }catch(e){status(e.message);}finally{busy=false;}}
+function sheetTasks(values){
+ const head=(values[0]||[]).map(x=>String(x||'').trim());
+ const required=['ACTION EXPLICITE','PROJET','STATUT (modifier)','IMPORTANT','URGENT'];
+ if(required.some(h=>!head.includes(h)))throw Error('Google Sheets : colonnes de la matrice non reconnues.');
+ const val=(r,k)=>String(r[head.indexOf(k)]??'').trim();
+ const counts=new Map();for(const row of values.slice(1)){const title=val(row,'ACTION EXPLICITE');if(title)counts.set(title,(counts.get(title)||0)+1);}
+ return values.slice(1).flatMap((row,i)=>{
+  const title=val(row,'ACTION EXPLICITE');if(!title)return [];
+  const prior=state.tasks.filter(t=>t.title.trim()===title);
+  const old=prior.length===1&&counts.get(title)===1?prior[0]:null;
+  const dueText=val(row,'ÉCHÉANCE');
+  const number=k=>Math.max(0,Number(val(row,k).replace(',','.'))||0);
+  return [{...old,id:old?.id||'sheet-'+SHEET_ID+'-'+(i+2),title,project:val(row,'PROJET')||'À classer',status:val(row,'STATUT (modifier)')||'À faire',important:val(row,'IMPORTANT').toLowerCase()==='oui',urgent:val(row,'URGENT').toLowerCase()==='oui',due:csvDate(dueText),dueText,estimate:number('PRÉVU (min)'),actual:number('RÉEL (min)'),owner:val(row,'RESPONSABLE'),details:val(row,'NOTE / DÉCISION'),mail:safeLink(val(row,'MAIL'))||old?.mail||'',calendar:safeLink(val(row,'AGENDA'))||old?.calendar||'',kind:old?.kind||'work',sheetSource:SHEET_ID,sheetRow:i+2}];
+ });
+}
 async function refreshSheetStatuses(){
  const before=JSON.stringify(state.tasks);
- const result=await(await api('sheets/v4/spreadsheets/'+SHEET_ID+'/values/'+encodeURIComponent("'MATRICE MOBILE'!B2:D1000"))).json();
+ const result=await(await api('sheets/v4/spreadsheets/'+SHEET_ID+'/values/'+encodeURIComponent("'MATRICE MOBILE'!A1:Q1000"))).json();
  if(JSON.stringify(state.tasks)!==before)throw Error('Tâches modifiées pendant la lecture : relance Actualiser.');
- const rows=new Map();
- for(const row of result.values||[]){const title=String(row[0]||'').trim();const entries=rows.get(title)||[];entries.push(String(row[2]||'').trim());rows.set(title,entries);}
- const allowed=['À faire','En cours','En attente','Terminé','Reporté'];
- for(const task of state.tasks){const matches=rows.get(task.title.trim());if(matches?.length===1&&allowed.includes(matches[0]))task.status=matches[0];}
+ const imported=sheetTasks(result.values||[]);
+ const titles=new Set(imported.map(t=>t.title));
+ // Conserver les tâches locales absentes du classeur et leurs chronomètres.
+ state.tasks=[...imported,...state.tasks.filter(t=>!titles.has(t.title.trim()))];
  save();
+ return imported.length;
 }
 // Écriture ciblée dans le classeur MÉTIS. Refuse les titres absents/dupliqués et les conflits de statut.
 async function updateTaskStatus(task, previous){

@@ -14,3 +14,6 @@ Déploiement : dossier `metis` du dépôt oren-fm-pilotage vers le projet Vercel
 
 ## Correctif 4.2.1
 Adresse Sheets officielle sheets.googleapis.com/v4 ; erreurs identifiées par service, délai maximal de requête de 20 secondes et absence de relance automatique des écritures non confirmées. Tests de routage, réseau, expiration et refus API ajoutés.
+
+## Correctif 4.3
+Chargement initial et actualisation des tâches depuis les colonnes A:Q de MATRICE MOBILE, avec priorités, statuts, échéances et temps. Conservation des tâches locales absentes du classeur. Les libellés « Ouvrir » ne sont pas transformés en faux liens. Une panne de lecture de sauvegarde Drive ne bloque plus le chargement Sheets.
