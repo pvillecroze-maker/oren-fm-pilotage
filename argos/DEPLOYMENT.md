@@ -1,0 +1,1 @@
+ARGOS — Vite, application autonome dans le dossier argos. Configurer Vercel avec Root Directory argos, Framework Vite, Build Command npm run build, Output Directory dist. Les contacts ne sont jamais commités ; import CSV temporaire dans le navigateur. Pas encore de base privée ni de synchronisation METIS.
