@@ -1,6 +1,29 @@
 {
   "version": 2,
   "framework": null,
-  "buildCommand": "mkdir -p dist && cp -R public/. dist/",
-  "outputDirectory": "dist"
+  "buildCommand": "mkdir -p dist && cp -R public/. dist/ && cp metis/icon-192.png metis/icon-512.png dist/",
+  "outputDirectory": "dist",
+  "redirects": [
+    {
+      "source": "/metis/janus.html",
+      "destination": "/janus.html",
+      "permanent": false
+    },
+    {
+      "source": "/metis/index.html",
+      "destination": "/",
+      "permanent": false
+    }
+  ],
+  "headers": [
+    {
+      "source": "/sw.js",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    }
+  ]
 }
