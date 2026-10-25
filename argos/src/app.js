@@ -1,3 +1,4 @@
+import './oren-feed.js';
 import './network.js';
 let contacts=[],cat='Tous';
 /* Données privées : stockage local du navigateur uniquement, jamais GitHub/Vercel. */
