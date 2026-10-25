@@ -9,7 +9,28 @@
 @media(prefers-reduced-motion:no-preference){.taskrow,.metric,.panel,.primary{transition:background .18s,border-color .18s,transform .18s}.taskrow:hover{border-color:#48706c}.primary:active{transform:scale(.97)}}.timerbar{display:flex;align-items:center;gap:10px;justify-content:space-between;flex-wrap:wrap;background:linear-gradient(100deg,#172c39,#162436);border:1px solid #f0be7180;border-radius:10px;padding:10px 14px;margin:12px 0;color:#f2d5ad;font-size:12px}.timerbar b{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:19px;letter-spacing:.08em;color:#ffdfa8}.timerbar button{background:#684a30;color:#fff2dd;border:1px solid #dfac67;border-radius:8px;padding:7px 9px}.onboarding{border-color:#6e8da5;background:radial-gradient(circle at 95% 0%,#254357 0%,#142234 55%,#0d1928 100%);margin-top:18px}.onboarding h2{font-size:24px;letter-spacing:-.03em}.taskactions button[data-timer-start],.taskactions button[data-timer-stop]{font-weight:700;text-decoration:none;color:#edc181}@media(max-width:490px){.statusbar{flex-direction:column;align-items:flex-start}.timerbar{align-items:flex-start}.onboarding{padding:20px 15px}} @media(max-width:800px){.navitem{min-width:0;padding:6px 4px;font-size:10px}}
 </style></head><body><main id="app" class="shell"></main>
 <div id="modalWrap" class="modalwrap" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal"><div class="sectionhead" style="margin-top:0"><h2 id="modalTitle">Nouvelle action</h2><button class="iconbutton" type="button" id="closeModal" aria-label="Fermer">×</button></div><form id="taskForm"><input type="hidden" id="taskId"><div class="formgrid"><div class="formfield span2"><label for="f_title">Action explicite</label><input id="f_title" type="text" maxlength="250" required placeholder="Verbe + objectif concret"></div><div class="formfield span2"><label for="f_project">Projet</label><input id="f_project" type="text" maxlength="100" placeholder="FD83, Emploi, APTI, ARGOS…"></div><div class="formfield"><label for="f_status">Statut</label><select id="f_status"><option>À faire</option><option>En cours</option><option>En attente</option><option>À vérifier</option><option>À replanifier</option><option>Terminé</option><option>Reporté</option></select></div><div class="formfield"><label for="f_due">Échéance</label><input id="f_due" type="datetime-local"></div><div class="formfield"><label for="f_estimate">Prévu (minutes)</label><input id="f_estimate" type="number" min="0" step="5"></div><div class="formfield"><label for="f_actual">Réel (minutes)</label><input id="f_actual" type="number" min="0" step="5"></div><div class="formfield span2"><label>Classement Eisenhower</label><div class="toggleline"><label><input id="f_important" type="checkbox"> Important</label><label><input id="f_urgent" type="checkbox"> Urgent</label></div></div><div class="formfield span2"><label for="f_owner">Responsable / interlocuteur</label><input id="f_owner" type="text"></div><div class="formfield"><label for="f_mail">Lien Gmail (facultatif)</label><input id="f_mail" type="url" placeholder="https://..."></div><div class="formfield"><label for="f_calendar">Lien Agenda (facultatif)</label><input id="f_calendar" type="url" placeholder="https://..."></div><div class="formfield span2"><label for="f_details">Note / décision</label><textarea id="f_details" maxlength="2500"></textarea></div></div><p class="smallnote">Les modifications sont conservées localement. Les liens sources ouvrent les services Google sans les modifier.</p><div class="modalcontrols"><button type="button" class="secondary" id="cancel">Annuler</button><button class="primary" type="submit">Enregistrer</button></div></form></div></div>
-<script>const ORIGINAL={"tasks":[],"events":[],"mails":[],"snapshot":null};
+<script>
+/* Import local, non destructif, des tâches de l'ancienne matrice simplifiée. */
+(()=>{
+ try{
+  const legacy=JSON.parse(localStorage.getItem('metis:tasks:v1')||'[]');
+  if(!Array.isArray(legacy)||legacy.length===0)return;
+  const dest='metis-oren-v3-private';
+  const current=JSON.parse(localStorage.getItem(dest)||localStorage.getItem('metis-v1-private')||'null')||{tasks:[],events:[],mails:[],snapshot:null};
+  if(!Array.isArray(current.tasks))return;
+  const existing=new Set(current.tasks.map(x=>String(x.id)));
+  const imported=legacy.filter(x=>x&&typeof x.name==='string'&&x.name.trim()).map((x,i)=>{
+   const q=[1,2,3,4].includes(Number(x.q))?Number(x.q):2;
+   return {id:'mini-'+String(x.id||i).slice(0,100),title:x.name.trim().slice(0,300),project:'Ancienne matrice MÉTIS',important:q===1||q===2,urgent:q===1||q===3,status:x.done?'Terminé':q===4?'Reporté':'À faire',due:'',estimate:30,actual:0,mail:'',calendar:'',owner:'',details:'Importé de la matrice simplifiée locale (quadrant '+q+').'};
+  }).filter(x=>!existing.has(x.id));
+  if(!imported.length)return;
+  current.tasks=[...current.tasks,...imported];
+  current.updated=new Date().toISOString();
+  localStorage.setItem(dest,JSON.stringify(current));
+  /* Source conservée telle quelle. La migration est idempotente grâce aux identifiants. */
+ }catch(e){console.warn('Import local non effectué ; anciennes tâches conservées.')}
+})();
+const ORIGINAL={"tasks":[],"events":[],"mails":[],"snapshot":null};
 const STORE="metis-oren-v3-private";const LEGACY_STORE="metis-v1-private";const TIMER_STORE="metis-oren-v3-timer";const VIEWS=["today","matrix","agenda","mail","music","settings"];
 let state={tasks:[],events:[],mails:[],snapshot:null,updated:null,tab:"today",query:"",filter:"all",timer:null};
 try{
