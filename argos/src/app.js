@@ -59,6 +59,16 @@ window.addEventListener('message',e=>{
  if(e.origin!=='https://metis-oren-patrick-os.vercel.app'||e.data?.type!=='oren:argos:request-summary')return;
  publishJanusSummary(e.source,e.origin);
 });
+/* Liaison locale et volontaire MÉTIS : ne partage que noms et catégories,
+   exclusivement après une demande depuis la fiche ARGOS. */
+window.addEventListener('message',e=>{
+ if(e.origin!=='https://metis-oren-patrick-os.vercel.app'||e.data?.type!=='oren:argos:request-task-links'||!e.source)return;
+ const names=contacts.slice(0,5000).map(c=>({
+  name:name(c).slice(0,160),
+  category:String(c['ARGOS - Catégorie']||'AUTRE').slice(0,80)
+ })).filter(c=>c.name&&c.name!=='Sans nom');
+ e.source.postMessage({type:'oren:argos:task-links',version:1,at:new Date().toISOString(),contacts:names,total:contacts.length},e.origin);
+});
 window.addEventListener('argos:open-contact', e => show(e.detail));
 $('exportNetwork').onclick=()=>window.dispatchEvent(new Event('argos:export'));
 $('backupFile').onchange=async e=>{const f=e.target.files?.[0];if(!f)return;try{const data=JSON.parse(await f.text());if(data.version!==1||!Array.isArray(data.contacts)||!Array.isArray(data.relations))throw Error('Format de sauvegarde ARGOS non reconnu');if(data.contacts.some(c=>!c||typeof c!=='object'||Array.isArray(c)))throw Error('Contacts invalides');contacts=data.contacts;saveContacts();render();window.dispatchEvent(new CustomEvent('argos:restore-relations',{detail:data.relations}));}catch(err){alert('Import impossible : '+err.message)}e.target.value=''};
