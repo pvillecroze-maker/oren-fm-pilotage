@@ -1,0 +1,29 @@
+/* OREN shared palette, with Music-specific layout. */
+:root{--bg:var(--oren-bg);--panel:#0d2130;--panel2:#132b3d;--line:var(--oren-edge);--text:var(--oren-text);--muted:var(--oren-muted);--accent:var(--oren-cyan);--accent2:#b2f5ee;--rust:#edbd66;--nav:#091824;--radius:6px}
+.oren-bar{border-top:2px solid #79e5dc;padding-top:max(12px,env(safe-area-inset-top))}
+.oren-project-links{display:flex;gap:20px;align-items:center;font-size:10px;font-weight:750;letter-spacing:.1em}
+.oren-project-links a{color:var(--oren-muted);padding:10px 0}
+.oren-project-links [aria-current]{color:var(--oren-cyan);border-bottom:2px solid var(--oren-cyan);padding:10px 0}
+.app-shell{max-width:1160px}
+.topbar{height:88px;border-bottom:1px solid var(--oren-edge);margin-bottom:24px}
+.brand{letter-spacing:.22em}.brand-text small{color:var(--oren-muted);letter-spacing:.16em}
+.brand-mark{border:1px solid var(--oren-edge);background:#102c3b;padding:12px;height:48px;border-radius:3px}
+.brand-mark span{border-radius:0;width:3px}
+.connection-state,.icon-button{border-radius:4px}
+.hero-card{background:linear-gradient(120deg,#102c40,#0b1c2c);border:1px solid var(--oren-edge);border-radius:6px;box-shadow:inset 3px 0 var(--oren-cyan)}
+.panel,.music-hero,.insight-panel,.chart-panel,.mood-panel,.settings-panel{border:1px solid var(--oren-edge);border-radius:6px;background:var(--panel)}
+.screen-intro h1 em{font-family:var(--font);font-style:normal;font-weight:700}
+.screen-intro h1,.hero-card h1{letter-spacing:-.035em}
+.button,.mode-btn,.track-tag,input,select,textarea{border-radius:4px}
+.button.primary{background:var(--oren-cyan);color:#071821;border:1px solid #b2f5ee}
+.button.secondary{background:#132d40;color:var(--oren-text);border:1px solid #3c637b}
+.button:hover{filter:brightness(1.08)}
+.mode-btn.active{background:#15414b;border-color:#79e5dc;color:#b2f5ee}
+.eyebrow,.kicker,.small-upper{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;color:var(--oren-cyan);letter-spacing:.15em}
+.bottom-nav{background:#091824f5;border:1px solid var(--oren-edge);border-radius:6px 6px 0 0;backdrop-filter:blur(18px);padding-bottom:max(10px,env(safe-area-inset-bottom))}
+.tab.active{color:var(--oren-cyan)}
+.track-row{border-bottom-color:#28465b}.track-row:hover{background:#132b3d}
+.session-actions{gap:10px;flex-wrap:wrap}.session-actions .button{min-height:44px}
+#apple-action-status{padding:12px 14px;border-left:2px solid var(--rust);background:#142b3a;color:var(--oren-text)}
+@media(max-width:600px){.oren-bar{gap:10px;padding-left:16px;padding-right:16px}.oren-brand{font-size:12px}.oren-project-links{gap:12px;font-size:9px}.app-shell{padding-left:16px;padding-right:16px}.topbar{height:78px}.brand{font-size:18px;gap:10px}.brand-text small{font-size:8px}.right-head{gap:8px}.connection-state{padding:7px;font-size:10px}.brand-mark{display:none}.session-actions .button{flex:1 1 150px;text-align:center}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.screen{animation:none}}
