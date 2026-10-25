@@ -13,6 +13,7 @@
 /* Import local, non destructif, des tâches de l'ancienne matrice simplifiée. */
 (()=>{
  try{
+  if(localStorage.getItem('metis:tasks:migrated-v1')==='yes')return;
   const legacy=JSON.parse(localStorage.getItem('metis:tasks:v1')||'[]');
   if(!Array.isArray(legacy)||legacy.length===0)return;
   const dest='metis-oren-v3-private';
@@ -23,11 +24,12 @@
    const q=[1,2,3,4].includes(Number(x.q))?Number(x.q):2;
    return {id:'mini-'+String(x.id||i).slice(0,100),title:x.name.trim().slice(0,300),project:'Ancienne matrice MÉTIS',important:q===1||q===2,urgent:q===1||q===3,status:x.done?'Terminé':q===4?'Reporté':'À faire',due:'',estimate:30,actual:0,mail:'',calendar:'',owner:'',details:'Importé de la matrice simplifiée locale (quadrant '+q+').'};
   }).filter(x=>!existing.has(x.id));
-  if(!imported.length)return;
+  if(!imported.length){localStorage.setItem('metis:tasks:migrated-v1','yes');return;}
   current.tasks=[...current.tasks,...imported];
   current.updated=new Date().toISOString();
   localStorage.setItem(dest,JSON.stringify(current));
-  /* Source conservée telle quelle. La migration est idempotente grâce aux identifiants. */
+  localStorage.setItem('metis:tasks:migrated-v1','yes');
+  /* Source conservée telle quelle : import effectué une seule fois. */
  }catch(e){console.warn('Import local non effectué ; anciennes tâches conservées.')}
 })();
 const ORIGINAL={"tasks":[],"events":[],"mails":[],"snapshot":null};
