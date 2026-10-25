@@ -2,6 +2,6 @@
 set -euo pipefail
 mkdir -p dist/metis dist/music
 cp -R public/. dist/
-cp metis/index.html metis/google-sync.js metis/mail-sync.js metis/oren-theme.css metis/manifest.webmanifest metis/sw.js metis/icon-192.png metis/icon-512.png dist/metis/
+cp metis/index.html metis/project.html metis/google-sync.js metis/mail-sync.js metis/oren-theme.css metis/manifest.webmanifest metis/sw.js metis/icon-192.png metis/icon-512.png dist/metis/
 cp -R metis/music/. dist/music/
 cp metis/icon-192.png metis/icon-512.png dist/
