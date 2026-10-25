@@ -66,7 +66,7 @@ function draw(){
   const recent=dates.map(d=>({date:day(d),value:summaries[day(d)]?.[p.name]?.data})).filter(x=>x.value);
   const last=recent[recent.length-1];
   if(p.name==='MÉTIS'&&last){const d=last.value;detail.textContent=d.tasks+' tâches · '+d.done+' terminées · '+d.pending+' en cours / à faire';}
-  else if(p.name==='ARGOS'&&last){detail.textContent=last.value.count+' contacts · bilan agrégé '+last.date;}
+  else if(p.name==='ARGOS'&&last){detail.textContent=last.value.count?last.value.count+' contacts · bilan agrégé '+last.date:'ARGOS accessible, mais aucune donnée locale visible dans cette session';}
   else if(p.name==='MUSIQUE'&&last){detail.textContent=last.value.sessions+' sessions · '+last.value.history+' bilans d’humeur';}
   else if(last){detail.textContent='Données disponibles le '+last.date;}
   else if(p.name==='PHÈMÉ'){detail.textContent='Source non raccordée : aucune donnée inventée';}
