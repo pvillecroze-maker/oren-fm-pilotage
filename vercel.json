@@ -8,11 +8,6 @@
       "source": "/metis/janus.html",
       "destination": "/janus.html",
       "permanent": false
-    },
-    {
-      "source": "/metis/index.html",
-      "destination": "/",
-      "permanent": false
     }
   ],
   "headers": [
