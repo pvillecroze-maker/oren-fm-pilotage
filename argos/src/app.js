@@ -1,3 +1,4 @@
+import '../../public/oren-shell.mjs';
 import './oren-feed.js';
 import './network.js';
 let contacts=[],cat='Tous';

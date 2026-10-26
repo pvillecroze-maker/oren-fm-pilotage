@@ -62,4 +62,4 @@ document.getElementById('sync-argos').addEventListener('click',()=>{
  setTimeout(()=>{if(document.getElementById('argos-status').textContent.includes('en cours'))document.getElementById('argos-status').textContent='ARGOS ne répond pas : ouvre ARGOS sur cet appareil, vérifie les contacts puis réessaie. Safari peut bloquer le stockage dans une iframe.'},7000);
 });
 window.addEventListener('storage',draw);document.addEventListener('visibilitychange',()=>{if(!document.hidden)draw()});draw();
-</script></body></html>
+</script><script type="module" src="/oren-shell.mjs"></script></body></html>

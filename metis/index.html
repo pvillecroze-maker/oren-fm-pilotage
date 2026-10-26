@@ -169,4 +169,4 @@ document.getElementById('taskForm').addEventListener('submit',async e=>{e.preven
 document.getElementById('modalWrap').addEventListener('click',e=>{if(e.target.id==='modalWrap')closeModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
 if('serviceWorker' in navigator&&location.protocol==='https:'){navigator.serviceWorker.register('./sw.js').catch(()=>{})}
 render();setInterval(()=>{if(document.getElementById('modalWrap').classList.contains('open'))return;render()},60000);
-</script><script src="https://accounts.google.com/gsi/client" async></script><script src="./mail-sync.js"></script><script src="./google-sync.js"></script></body></html>
+</script><script src="https://accounts.google.com/gsi/client" async></script><script src="./mail-sync.js"></script><script src="./google-sync.js"></script><script type="module" src="/oren-shell.mjs"></script></body></html>

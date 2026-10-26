@@ -1,3 +1,4 @@
+import {projectUrl} from '../../public/oren-projects.mjs';
 import {METIS_ORIGIN,normalizeFeed,validReply} from '../../public/oren-feed-model.mjs';
 const KEY='argos:oren-feed:v1';
 let feed={items:[]},popup=null,nonce='',timer;
@@ -9,7 +10,7 @@ const kinds={task:'Tâche',mail:'Courriel',event:'Rendez-vous'};
 function render(){
  const q=el('orenSearch').value.toLocaleLowerCase('fr');const items=feed.items.filter(x=>[x.title,x.project,x.source].join(' ').toLocaleLowerCase('fr').includes(q));
  el('orenItems').replaceChildren();
- for(const item of items.slice(0,100)){const card=document.createElement('article');card.className='card';const title=document.createElement('strong');title.textContent=item.title;const meta=document.createElement('p');meta.textContent=[item.source,kinds[item.kind],item.project,item.date||'Date non renseignée',item.status].filter(Boolean).join(' · ');card.append(title,meta);if(item.url){const a=document.createElement('a');a.href=item.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent='Ouvrir la source';card.append(a);}el('orenItems').append(card);}
+ for(const item of items.slice(0,100)){const card=document.createElement('article');card.className='card';const title=document.createElement('strong');title.textContent=item.title;const meta=document.createElement('p');meta.textContent=[item.source,kinds[item.kind],item.project,item.date||'Date non renseignée',item.status].filter(Boolean).join(' · ');card.append(title,meta);if(item.url){const a=document.createElement('a');a.href=item.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent='Ouvrir la source';card.append(a);}if(item.project){const a=document.createElement('a');a.href=projectUrl(item.project);a.textContent=' · Actions du projet dans MÉTIS';card.append(a);}el('orenItems').append(card);}
  const count=document.createElement('p');count.textContent=items.length+' éléments correspondants'+(items.length>100?' · 100 affichés, affine la recherche.':'.');el('orenItems').prepend(count);
 }
 function accept(data){const next=normalizeFeed(data);localStorage.setItem(KEY,JSON.stringify(next));feed=next;render();status(feed.items.length+' éléments conservés sur cet appareil. Reçu le '+new Date().toLocaleString('fr-FR')+'. Instantané source : '+(feed.at||'date inconnue')+'.');}
