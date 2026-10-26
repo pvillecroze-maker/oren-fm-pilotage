@@ -6,7 +6,7 @@ Le module est codé. Il reste à configurer le projet Google avant toute connexi
 2. Activer Google Calendar API, Gmail API et Google Drive API et Google Sheets API.
 3. Dans Google Auth Platform, configurer le consentement et ajouter ton compte Google aux utilisateurs de test si l'application est en mode test.
 4. Créer un client OAuth « Application Web ».
-5. Ajouter l'origine JavaScript autorisée exacte : https://metis-oren-patrick-os.vercel.app (et l'autre domaine Vercel si utilisé).
+5. Ajouter l'origine JavaScript autorisée exacte du portail JANUS : https://janus-oren-patrick-os.vercel.app . Conserver https://metis-oren-patrick-os.vercel.app tant que l'ancienne adresse est utilisée pour les données locales ou OAuth. Les origines sont distinctes : reconnecter Google depuis la nouvelle adresse.
 6. Copier uniquement l'identifiant client PUBLIC (terminé par apps.googleusercontent.com) dans MÉTIS > Configurer Google. Aucun secret client n'est nécessaire pour ce flux navigateur.
 7. Appuyer sur Connecter Google et autoriser les trois accès.
 
