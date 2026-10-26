@@ -2,7 +2,7 @@ import {METIS_ORIGIN,normalizeFeed,validReply} from '../../public/oren-feed-mode
 const KEY='argos:oren-feed:v1';
 let feed={items:[]},popup=null,nonce='',timer;
 const panel=document.createElement('section');panel.className='panel';
-panel.innerHTML='<h2>Activité des projets OREN</h2><p>MÉTIS : tâches, rendez-vous, sujets de courriels. HERMÈS : tâches ajoutées à MÉTIS. Transfert manuel depuis les données de ce navigateur.</p><button id="orenSync">Synchroniser OREN</button> <label class="btn">Importer le flux JSON <input id="orenImport" type="file" accept="application/json" hidden></label> <button id="orenClear">Effacer ce flux local</button><p id="orenStatus" role="status"></p><p>OLYMPOS et PHÈMÉ : non raccordés. Aucun accès automatique à leurs données.</p><input id="orenSearch" placeholder="Rechercher une activité ou un projet" aria-label="Rechercher une activité ou un projet"><div id="orenItems"></div>';
+panel.innerHTML='<h2>Activité des projets OREN</h2><p>MÉTIS : tâches, rendez-vous, sujets de courriels. HERMÈS : tâches ajoutées à MÉTIS. Alimentation automatique depuis MÉTIS dans ce navigateur, toutes les minutes tant qu’ARGOS est ouvert.</p><button id="orenSync">Synchroniser OREN</button> <label class="btn">Importer le flux JSON <input id="orenImport" type="file" accept="application/json" hidden></label> <button id="orenClear">Effacer ce flux local</button><p id="orenStatus" role="status"></p><p>OLYMPOS et PHÈMÉ : non raccordés. Aucun accès automatique à leurs données.</p><input id="orenSearch" placeholder="Rechercher une activité ou un projet" aria-label="Rechercher une activité ou un projet"><div id="orenItems"></div>';
 document.querySelector('main').append(panel);
 const el=id=>document.getElementById(id),status=s=>el('orenStatus').textContent=s;
 const kinds={task:'Tâche',mail:'Courriel',event:'Rendez-vous'};
@@ -19,3 +19,23 @@ el('orenSync').onclick=()=>{clearTimeout(timer);nonce=crypto.randomUUID();popup=
 window.addEventListener('message',e=>{if(!validReply(e,popup,nonce))return;try{accept(e.data.feed);clearTimeout(timer);popup=null;nonce='';}catch{status('Flux refusé ou stockage saturé. Les données précédentes sont conservées.');}});
 el('orenImport').onchange=async e=>{const f=e.target.files?.[0];if(!f)return;try{if(f.size>20000000)throw Error();accept(JSON.parse(await f.text()));}catch{status('Import impossible : flux OREN invalide ou stockage saturé.');}e.target.value='';};
 el('orenClear').onclick=()=>{if(confirm('Effacer uniquement le flux OREN local ? Les contacts et relations seront conservés.')){try{localStorage.removeItem(KEY);feed={items:[]};render();status('Flux local effacé.');}catch{status('Effacement impossible.');}}};
+
+/* Continuous feed while visible; credentials and message bodies never cross origins. */
+let bridge=null,bridgeNonce='',bridgeTimer;
+function refreshAutomatic(){
+ if(document.hidden)return;
+ clearTimeout(bridgeTimer);bridgeNonce=crypto.randomUUID();
+ const request=()=>{bridge.contentWindow.postMessage({type:'oren:feed:request',nonce:bridgeNonce},METIS_ORIGIN);
+ bridgeTimer=setTimeout(()=>status('MÉTIS ne répond pas. Ouvre et synchronise MÉTIS dans ce navigateur. Dernier flux conservé.'),15000)};
+ if(!bridge){bridge=document.createElement('iframe');bridge.hidden=true;bridge.title='Alimentation MÉTIS';bridge.src=METIS_ORIGIN+'/argos-feed.html';bridge.onload=request;document.body.append(bridge)}else request();
+}
+window.addEventListener('message',e=>{
+ if(!bridge||e.origin!==METIS_ORIGIN||e.source!==bridge.contentWindow||e.data?.nonce!==bridgeNonce)return;
+ if(e.data.type==='oren:feed:error'){clearTimeout(bridgeTimer);status('Aucune source MÉTIS lisible dans ce navigateur. Synchronise MÉTIS ; dernier flux conservé.');return}
+ if(!validReply(e,bridge.contentWindow,bridgeNonce))return;
+ clearTimeout(bridgeTimer);
+ try{accept(e.data.feed)}catch{status('Flux automatique invalide ou stockage indisponible. Dernier flux conservé.')}
+});
+refreshAutomatic();
+setInterval(refreshAutomatic,60000);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshAutomatic()});
