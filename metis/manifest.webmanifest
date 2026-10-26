@@ -1,8 +1,8 @@
 {
-  "name": "JANUS — Portail OREN | MÉTIS",
-  "short_name": "JANUS",
-  "description": "Portail mythologique numérique OREN et accès au pilotage MÉTIS",
-  "start_url": "./janus.html",
+  "name": "MÉTIS — Pilotage | JANUS / OREN",
+  "short_name": "MÉTIS",
+  "description": "Module de pilotage stratégique MÉTIS, accessible depuis le portail JANUS.",
+  "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "theme_color": "#080e1c",
@@ -22,5 +22,5 @@
       "purpose": "any maskable"
     }
   ],
-  "id": "./"
+  "id": "/metis/"
 }
