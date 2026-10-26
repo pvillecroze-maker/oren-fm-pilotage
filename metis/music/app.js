@@ -122,7 +122,24 @@
   $('#connect-apple').addEventListener('click',connectApple);$('#sync-apple').addEventListener('click',syncApple);$('#disconnect-apple').addEventListener('click',disconnectApple);
   window.addEventListener('online',()=>{if(!appleConnected)$('#connection-badge span').textContent='Local et privé'});window.addEventListener('offline',()=>{if(!appleConnected)$('#connection-badge span').textContent='Hors ligne'});
  }
- async function boot(){$('#header-date').textContent=new Date().toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long',year:'numeric'}).toUpperCase();$('#entry-date').value=nowISO();sliders.forEach(refreshSlider);$('#britpop-share').value=state.preferences.britpop;$('#britpop-share-val').textContent=state.preferences.britpop+' %';$('#britpop-share').style.setProperty('--progress',(state.preferences.britpop-10)/60*100+'%');$('#session-size').value=String(state.preferences.sessionSize);$('#session-voice').value=state.preferences.voice;setMode(activeMode);initEvents();renderAppleStatus();try{if(Array.isArray(window.__SILLAGE_CATALOG__))seed=window.__SILLAGE_CATALOG__;else{const response=await fetch('./catalog.json');if(!response.ok)throw Error('Catalogue introuvable');seed=await response.json()}if(seed.length!==264)throw Error('La bibliothèque fusionnée est incomplète.');}catch(err){toast('Erreur de chargement du catalogue : utilise un serveur HTTPS ou localhost.');console.warn('SILLAGE',err);seed=[]}
+
+ function installSoundiiz(){
+ const panel=el('section','settingscard');
+ const title=el('h3','','Apple Music via Soundiiz');
+ const note=el('p','','Sans abonnement développeur Apple : exporte la sélection, puis importe le fichier dans Soundiiz avec Apple Music comme destination. Connexion Soundiiz requise ; vérifie les correspondances avant validation.');
+ const exportButton=el('button','secondary','1. Exporter la sélection pour Soundiiz (.txt)');exportButton.type='button';exportButton.id='export-soundiiz';
+ exportButton.onclick=()=>{if(!session.length){toast('Génère une session musicale avant l’export.');return}
+ const clean=value=>String(value||'').replace(/[\r\n]+/g,' ').trim();
+ const text=session.map(s=>clean(s.artist)+' - '+clean(s.title)).join('\n');
+ download('METIS_Apple_Music_'+nowISO()+'.txt',text,'text/plain;charset=utf-8');
+ toast(session.length+' titres exportés. Dans Soundiiz : Importer une playlist → Fichier → Apple Music.');
+ };
+ const link=el('a','secondary','2. Ouvrir Soundiiz');link.href='https://soundiiz.com/fr/webapp';link.target='_blank';link.rel='noopener noreferrer';
+ panel.append(title,note,exportButton,document.createTextNode(' '),link);
+ $('#save-apple-playlist').parentElement.append(panel);
+ }
+
+ async function boot(){$('#header-date').textContent=new Date().toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long',year:'numeric'}).toUpperCase();$('#entry-date').value=nowISO();sliders.forEach(refreshSlider);$('#britpop-share').value=state.preferences.britpop;$('#britpop-share-val').textContent=state.preferences.britpop+' %';$('#britpop-share').style.setProperty('--progress',(state.preferences.britpop-10)/60*100+'%');$('#session-size').value=String(state.preferences.sessionSize);$('#session-voice').value=state.preferences.voice;setMode(activeMode);initEvents();installSoundiiz();renderAppleStatus();try{if(Array.isArray(window.__SILLAGE_CATALOG__))seed=window.__SILLAGE_CATALOG__;else{const response=await fetch('./catalog.json');if(!response.ok)throw Error('Catalogue introuvable');seed=await response.json()}if(seed.length!==264)throw Error('La bibliothèque fusionnée est incomplète.');}catch(err){toast('Erreur de chargement du catalogue : utilise un serveur HTTPS ou localhost.');console.warn('SILLAGE',err);seed=[]}
  detectLegacy();catalog=E.uniqueCatalog(seed,state.extraCatalog);session=state.sessions.find(x=>x.id===state.lastSessionId)?.ids.map(id=>catalog.find(s=>s.id===id)).filter(Boolean)||[];const today=state.history.filter(x=>x.date===nowISO()).slice(-1)[0];if(today)fillEntry(today);renderAssessment(today||readEntry());if(!session.length&&catalog.length)generateSession(true);renderSession();renderCatalog();renderHistory();renderFeedback();}
  boot();
 })();
