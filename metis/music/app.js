@@ -123,6 +123,11 @@
   window.addEventListener('online',()=>{if(!appleConnected)$('#connection-badge span').textContent='Local et privé'});window.addEventListener('offline',()=>{if(!appleConnected)$('#connection-badge span').textContent='Hors ligne'});
  }
 
+ function installLastfmLink(){
+ const bar=document.querySelector('[aria-label="Accès Apple Music"]')||document.getElementById('apple-direct-link')?.parentElement;
+ if(!bar||document.getElementById('lastfm-direct-link'))return;
+ const a=el('a','secondary','Explorer Last.fm ↗');a.id='lastfm-direct-link';a.href='https://www.last.fm/fr/music';a.target='_blank';a.rel='noopener noreferrer';bar.append(a);
+ }
  function installSoundiiz(){
  const panel=el('section','settingscard');
  const title=el('h3','','Apple Music via Soundiiz');
@@ -139,7 +144,7 @@
  $('#save-apple-playlist').parentElement.append(panel);
  }
 
- async function boot(){$('#header-date').textContent=new Date().toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long',year:'numeric'}).toUpperCase();$('#entry-date').value=nowISO();sliders.forEach(refreshSlider);$('#britpop-share').value=state.preferences.britpop;$('#britpop-share-val').textContent=state.preferences.britpop+' %';$('#britpop-share').style.setProperty('--progress',(state.preferences.britpop-10)/60*100+'%');$('#session-size').value=String(state.preferences.sessionSize);$('#session-voice').value=state.preferences.voice;setMode(activeMode);initEvents();installSoundiiz();renderAppleStatus();try{if(Array.isArray(window.__SILLAGE_CATALOG__))seed=window.__SILLAGE_CATALOG__;else{const response=await fetch('./catalog.json');if(!response.ok)throw Error('Catalogue introuvable');seed=await response.json()}if(seed.length!==264)throw Error('La bibliothèque fusionnée est incomplète.');}catch(err){toast('Erreur de chargement du catalogue : utilise un serveur HTTPS ou localhost.');console.warn('SILLAGE',err);seed=[]}
+ async function boot(){$('#header-date').textContent=new Date().toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long',year:'numeric'}).toUpperCase();$('#entry-date').value=nowISO();sliders.forEach(refreshSlider);$('#britpop-share').value=state.preferences.britpop;$('#britpop-share-val').textContent=state.preferences.britpop+' %';$('#britpop-share').style.setProperty('--progress',(state.preferences.britpop-10)/60*100+'%');$('#session-size').value=String(state.preferences.sessionSize);$('#session-voice').value=state.preferences.voice;setMode(activeMode);initEvents();installLastfmLink();installSoundiiz();renderAppleStatus();try{if(Array.isArray(window.__SILLAGE_CATALOG__))seed=window.__SILLAGE_CATALOG__;else{const response=await fetch('./catalog.json');if(!response.ok)throw Error('Catalogue introuvable');seed=await response.json()}if(seed.length!==264)throw Error('La bibliothèque fusionnée est incomplète.');}catch(err){toast('Erreur de chargement du catalogue : utilise un serveur HTTPS ou localhost.');console.warn('SILLAGE',err);seed=[]}
  detectLegacy();catalog=E.uniqueCatalog(seed,state.extraCatalog);session=state.sessions.find(x=>x.id===state.lastSessionId)?.ids.map(id=>catalog.find(s=>s.id===id)).filter(Boolean)||[];const today=state.history.filter(x=>x.date===nowISO()).slice(-1)[0];if(today)fillEntry(today);renderAssessment(today||readEntry());if(!session.length&&catalog.length)generateSession(true);renderSession();renderCatalog();renderHistory();renderFeedback();}
  boot();
 })();
