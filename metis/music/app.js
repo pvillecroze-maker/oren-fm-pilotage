@@ -144,7 +144,41 @@
  $('#save-apple-playlist').parentElement.append(panel);
  }
 
- async function boot(){$('#header-date').textContent=new Date().toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long',year:'numeric'}).toUpperCase();$('#entry-date').value=nowISO();sliders.forEach(refreshSlider);$('#britpop-share').value=state.preferences.britpop;$('#britpop-share-val').textContent=state.preferences.britpop+' %';$('#britpop-share').style.setProperty('--progress',(state.preferences.britpop-10)/60*100+'%');$('#session-size').value=String(state.preferences.sessionSize);$('#session-voice').value=state.preferences.voice;setMode(activeMode);initEvents();installLastfmLink();installSoundiiz();renderAppleStatus();try{if(Array.isArray(window.__SILLAGE_CATALOG__))seed=window.__SILLAGE_CATALOG__;else{const response=await fetch('./catalog.json');if(!response.ok)throw Error('Catalogue introuvable');seed=await response.json()}if(seed.length!==264)throw Error('La bibliothèque fusionnée est incomplète.');}catch(err){toast('Erreur de chargement du catalogue : utilise un serveur HTTPS ou localhost.');console.warn('SILLAGE',err);seed=[]}
+
+ function installLastfmStats(){
+ const panel=el('section','settingscard');panel.id='lastfm-stats-panel';
+ const title=el('h3','','OREN_REDDER · Statistiques Last.fm');
+ const note=el('p','','Écoutes enregistrées par Last.fm. Classements sur la période choisie ; totaux du profil sur toute la durée. Ces statistiques ne constituent pas une mesure de ton humeur.');
+ const range=el('select');range.id='lastfm-stats-period';range.setAttribute('aria-label','Période des statistiques Last.fm');
+ for(const [value,label] of [['7day','7 derniers jours'],['1month','Dernier mois'],['3month','3 mois'],['12month','12 mois'],['overall','Toute la durée']]){const o=el('option','',label);o.value=value;range.append(o)}
+ const refresh=el('button','secondary','Actualiser mes statistiques');refresh.type='button';
+ const report=el('a','secondary','Mon rapport Last.fm ↗');report.href='https://www.last.fm/fr/user/Oren_Redder/listening-report';report.target='_blank';report.rel='noopener noreferrer';
+ const status=el('p');status.setAttribute('role','status');
+ const body=el('div');
+ let pending=false;
+ async function load(){
+ if(pending)return;pending=true;refresh.disabled=true;status.textContent='Lecture des statistiques Oren_Redder…';
+ try{
+ const response=await fetch('/api/lastfm-profile?user=Oren_Redder&period='+range.value,{cache:'no-store'});const data=await response.json();
+ if(!response.ok)throw Error(data.error||'Lecture impossible');
+ body.replaceChildren();const counts=data.profile||{};
+ const summary=el('p','',Number(counts.playcount||0).toLocaleString('fr-FR')+' écoutes cumulées · '+Number(counts.artistCount||0).toLocaleString('fr-FR')+' artistes · '+Number(counts.trackCount||0).toLocaleString('fr-FR')+' titres');
+ body.append(summary);
+ for(const [heading,items] of [['Artistes les plus écoutés',(data.artists||[]).slice(0,10).map(a=>[a.name,a.playcount])],['Titres les plus écoutés',(data.tracks||[]).slice(0,10).map(t=>[t.artist+' — '+t.title,t.playcount])]]){
+ body.append(el('h4','',heading));const list=el('ol');for(const [name,count] of items)list.append(el('li','',name+' · '+Number(count||0).toLocaleString('fr-FR')+' écoutes'));body.append(list);
+ }
+ status.textContent='Source : API Last.fm · '+new Date(data.updatedAt).toLocaleString('fr-FR')+' · période : '+range.selectedOptions[0].textContent;
+ }catch(e){status.textContent='Statistiques indisponibles : '+e.message+'. Le rapport original reste accessible.'}
+ finally{pending=false;refresh.disabled=false}
+ }
+ refresh.onclick=load;range.onchange=load;
+ panel.append(title,note,range,refresh,document.createTextNode(' '),report,status,body);
+ $('#session-tracks').parentElement.append(panel);
+ if(!$('#lastfm-user').value)$('#lastfm-user').value='Oren_Redder';
+ load();setInterval(()=>{if(!document.hidden)load()},300000);
+ }
+
+ async function boot(){$('#header-date').textContent=new Date().toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long',year:'numeric'}).toUpperCase();$('#entry-date').value=nowISO();sliders.forEach(refreshSlider);$('#britpop-share').value=state.preferences.britpop;$('#britpop-share-val').textContent=state.preferences.britpop+' %';$('#britpop-share').style.setProperty('--progress',(state.preferences.britpop-10)/60*100+'%');$('#session-size').value=String(state.preferences.sessionSize);$('#session-voice').value=state.preferences.voice;setMode(activeMode);initEvents();installLastfmStats();installLastfmLink();installSoundiiz();renderAppleStatus();try{if(Array.isArray(window.__SILLAGE_CATALOG__))seed=window.__SILLAGE_CATALOG__;else{const response=await fetch('./catalog.json');if(!response.ok)throw Error('Catalogue introuvable');seed=await response.json()}if(seed.length!==264)throw Error('La bibliothèque fusionnée est incomplète.');}catch(err){toast('Erreur de chargement du catalogue : utilise un serveur HTTPS ou localhost.');console.warn('SILLAGE',err);seed=[]}
  detectLegacy();catalog=E.uniqueCatalog(seed,state.extraCatalog);session=state.sessions.find(x=>x.id===state.lastSessionId)?.ids.map(id=>catalog.find(s=>s.id===id)).filter(Boolean)||[];const today=state.history.filter(x=>x.date===nowISO()).slice(-1)[0];if(today)fillEntry(today);renderAssessment(today||readEntry());if(!session.length&&catalog.length)generateSession(true);renderSession();renderCatalog();renderHistory();renderFeedback();}
  boot();
 })();
