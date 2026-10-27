@@ -13,6 +13,7 @@ export const projects=[
  {id:'cap',name:'CAP',url:'https://cap-sans-tabac.vercel.app/',detail:'Application accessible. Données personnelles non partagées avec les autres modules.'},
  {id:'athena',name:'ATHÉNA',url:'https://drive.google.com/drive/folders/123FKYdj1yY8o7prLpq7a8uKRyJPiSHEo',detail:'Espace Google Drive emploi et candidatures, pas une application synchronisée.'},
  {id:'calliope',name:'CALLIOPE',url:'https://drive.google.com/drive/folders/1cvwZ24QhEcsjJjKofN2LDu4D82wt_yJX',detail:'Espace Google Drive communication, FD83 et engagements.'},
+ {id:'rade-rose',name:'LA RADE ET LA ROSE',url:'https://docs.google.com/spreadsheets/d/1l8Es0Y9TjP7lRXcZ_b5k52q4dfEidKosUa4ZE30v89A/edit',detail:'Tableau rédactionnel en activité, fichier Google Sheets distinct d’une application.'},
  {id:'hestia',name:'HESTIA',url:'https://drive.google.com/drive/folders/1dKxcQjP8zvZZLJ5JkDfkSwD2erFarL7d',detail:'Espace Google Drive administration et vie personnelle.'},
  {id:'hygie',name:'HYGIE',url:'https://drive.google.com/drive/folders/1YTxCSdannoC8yDmfv2pJbYobnjCGjMxz',detail:'Espace Google Drive santé et habitudes ; pas de transfert de données.'},
  {id:'hypnos',name:'HYPNOS',url:'https://drive.google.com/drive/folders/1HXsHw_P3KKFcbZDERUHpzhtY_alvQO79',detail:'Espace Google Drive sommeil et récupération ; aucune PWA HYPNOS vérifiée.'},
