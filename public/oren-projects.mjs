@@ -1,6 +1,6 @@
 export const HOME='https://metis-oren-patrick-os.vercel.app';
 export const projects=[
- {id:'janus',name:'JANUS',url:HOME+'/janus.html',detail:'Portail et synthèses locales de MÉTIS, musique et ARGOS.'},
+ {id:'janus',name:'JANUS',url:'https://janus-oren-patrick-os.vercel.app/janus.html',detail:'Portail et synthèses locales de MÉTIS, musique et ARGOS.'},
  {id:'metis',name:'MÉTIS',url:HOME+'/metis/index.html',detail:'Tâches, agenda et courriels. Session Google requise pour actualiser les sources.'},
  {id:'argos',name:'ARGOS',url:'https://argos-network.vercel.app/',detail:'Flux de métadonnées MÉTIS toutes les minutes, application visible. Même navigateur requis ; import JSON disponible en secours.'},
  {id:'music',name:'APOLLON',url:HOME+'/music/index.html',detail:'Musique et humeur. Synthèse locale accessible à JANUS.'},

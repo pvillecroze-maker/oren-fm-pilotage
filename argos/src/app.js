@@ -52,19 +52,19 @@ $('googleContacts').onclick=()=>{
 
 /* JANUS : bilan agrégé, sans transmettre noms, adresses ou contacts. */
 function publishJanusSummary(target,origin){
- if(origin!=='https://metis-oren-patrick-os.vercel.app')return;
+ if(!['https://metis-oren-patrick-os.vercel.app','https://janus-oren-patrick-os.vercel.app'].includes(origin))return;
  const categories={};
  for(const c of contacts){const key=String(c['ARGOS - Catégorie']||'AUTRE').slice(0,60);categories[key]=(categories[key]||0)+1}
  target.postMessage({type:'oren:argos:summary',version:1,at:new Date().toISOString(),count:contacts.length,categories},origin);
 }
 window.addEventListener('message',e=>{
- if(e.origin!=='https://metis-oren-patrick-os.vercel.app'||e.data?.type!=='oren:argos:request-summary')return;
+ if(!['https://metis-oren-patrick-os.vercel.app','https://janus-oren-patrick-os.vercel.app'].includes(e.origin)||e.data?.type!=='oren:argos:request-summary')return;
  publishJanusSummary(e.source,e.origin);
 });
 /* Liaison locale et volontaire MÉTIS : ne partage que noms et catégories,
    exclusivement après une demande depuis la fiche ARGOS. */
 window.addEventListener('message',e=>{
- if(e.origin!=='https://metis-oren-patrick-os.vercel.app'||e.data?.type!=='oren:argos:request-task-links'||!e.source)return;
+ if(!['https://metis-oren-patrick-os.vercel.app','https://janus-oren-patrick-os.vercel.app'].includes(e.origin)||e.data?.type!=='oren:argos:request-task-links'||!e.source)return;
  const names=contacts.slice(0,5000).map(c=>({
   name:name(c).slice(0,160),
   category:String(c['ARGOS - Catégorie']||'AUTRE').slice(0,80)
