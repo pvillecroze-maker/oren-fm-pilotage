@@ -1,7 +1,8 @@
-export const HOME='https://metis-oren-patrick-os.vercel.app';
+export const HOME='https://janus-oren-patrick-os.vercel.app';
 export const projects=[
- {id:'janus',name:'JANUS',url:'https://janus-oren-patrick-os.vercel.app/janus.html',detail:'Portail et synthèses locales de MÉTIS, musique et ARGOS.'},
+ {id:'janus',name:'JANUS',url:HOME+'/janus.html',detail:'Portail central de toutes les applications et espaces de projets OREN.'},
  {id:'metis',name:'MÉTIS',url:HOME+'/metis/index.html',detail:'Tâches, agenda et courriels. Session Google requise pour actualiser les sources.'},
+ {id:'anteros',name:'ANTEROS',url:'https://anteros-patrick.cosmic-spool-9901.chatgpt.site',detail:'Application personnelle distincte, accès privé. Aucune synchronisation ni import de photos ou fiches vers JANUS.'},
  {id:'argos',name:'ARGOS',url:'https://argos-network.vercel.app/',detail:'Flux de métadonnées MÉTIS toutes les minutes, application visible. Même navigateur requis ; import JSON disponible en secours.'},
  {id:'music',name:'APOLLON',url:HOME+'/music/index.html',detail:'Musique et humeur. Synthèse locale accessible à JANUS.'},
  {id:'hermes',name:'HERMÈS',url:HOME+'/hermes.html',detail:'Tâches locales partagées avec la matrice simplifiée et le flux ARGOS.'},
@@ -10,6 +11,12 @@ export const projects=[
  {id:'dossier',name:'DOSSIER LAVALETTE',url:'https://pheme-dossier-lavalette.vercel.app/',detail:'Dossier accessible. Connecteur de données non installé.'},
  {id:'olympos',name:'OLYMPOS',url:'https://olympos-mobile-pv.vercel.app/',detail:'Documents et navigation mobile. Connecteur de données non installé.'},
  {id:'cap',name:'CAP',url:'https://cap-sans-tabac.vercel.app/',detail:'Application accessible. Données personnelles non partagées avec les autres modules.'},
- {id:'hypnos',name:'HYPNOS',url:null,detail:'Application non raccordée. Aucun transfert de données de sommeil.'}
+ {id:'athena',name:'ATHÉNA',url:'https://drive.google.com/drive/folders/123FKYdj1yY8o7prLpq7a8uKRyJPiSHEo',detail:'Espace Google Drive emploi et candidatures, pas une application synchronisée.'},
+ {id:'calliope',name:'CALLIOPE',url:'https://drive.google.com/drive/folders/1cvwZ24QhEcsjJjKofN2LDu4D82wt_yJX',detail:'Espace Google Drive communication, FD83 et engagements.'},
+ {id:'hestia',name:'HESTIA',url:'https://drive.google.com/drive/folders/1dKxcQjP8zvZZLJ5JkDfkSwD2erFarL7d',detail:'Espace Google Drive administration et vie personnelle.'},
+ {id:'hygie',name:'HYGIE',url:'https://drive.google.com/drive/folders/1YTxCSdannoC8yDmfv2pJbYobnjCGjMxz',detail:'Espace Google Drive santé et habitudes ; pas de transfert de données.'},
+ {id:'hypnos',name:'HYPNOS',url:'https://drive.google.com/drive/folders/1HXsHw_P3KKFcbZDERUHpzhtY_alvQO79',detail:'Espace Google Drive sommeil et récupération ; aucune PWA HYPNOS vérifiée.'},
+ {id:'harmonia',name:'HARMONIA',url:'https://drive.google.com/drive/folders/1ehqnrOZyRzkAU82JPCbw3yaymNNZUyq2',detail:'Espace Google Drive humeur et musique ; APOLLON est le module applicatif.'},
+ {id:'mnemosyne',name:'MNÉMOSYNE',url:'https://drive.google.com/drive/folders/12Q_m-eqxMFi0gbad5NitE_JBkjCIyAFv',detail:'Espace Google Drive mémoire documentaire et archives.'}
 ];
 export function projectUrl(name){return HOME+'/metis/project.html?project='+encodeURIComponent(String(name).slice(0,100));}
