@@ -40,7 +40,7 @@ function detail(){
  const adjacent=graph.edges.filter(e=>e.from===n.id||e.to===n.id);
  if(!adjacent.length)root.append(element('p','Aucune relation renseignée.'));
  for(const e of adjacent){const other=graph.nodes.find(x=>x.id===(e.from===n.id?e.to:e.from));const row=element('div','');row.className='relation-row';row.append(element('strong',(e.from===n.id?'→ ':'← ')+(other?.label||'')),element('p',e.type+' · '+(e.status==='documented'?'Documentée':e.status==='unverified'?'À vérifier':'Déclarée dans le contact')),element('p',e.source+(e.date?' · '+e.date:'')));
-  if(e.kind==='relation'){const b=element('button','Retirer ce lien');b.onclick=()=>{relations=relations.filter(r=>r.id!==e.id);save();rebuild()};row.append(b)}root.append(row);
+  if(e.kind==='relation'){const b=element('button','Retirer ce lien');b.onclick=()=>{relations=relations.filter(r=>r.id!==e.id);if(save())window.dispatchEvent(new Event('argos:local-change'));rebuild()};row.append(b)}root.append(row);
  }
 }
 function select(id){selected=id;$('graphSelect').value=id;detail();draw()}
@@ -66,8 +66,19 @@ function stop(){rotation=false;last=0;cancelAnimationFrame(frame);$('rotateGraph
 $('rotateGraph').onclick=()=>{if(rotation)stop();else{rotation=true;last=0;$('rotateGraph').setAttribute('aria-pressed','true');frame=requestAnimationFrame(animate)}};document.addEventListener('visibilitychange',()=>{if(document.hidden)stop()});
 $('zoomIn').onclick=()=>{zoom=Math.min(2.5,zoom+.15);draw()};$('zoomOut').onclick=()=>{zoom=Math.max(.4,zoom-.15);draw()};$('resetGraph').onclick=()=>{yaw=.35;pitch=.2;zoom=1;select(null)};
 $('graphSearch').oninput=rebuild;$('showOrganizations').onchange=rebuild;$('graphSelect').onchange=e=>select(e.target.value);
-$('relationForm').onsubmit=e=>{e.preventDefault();try{const relation=validateRelation({id:crypto.randomUUID(),from:$('relationFrom').value,to:$('relationTo').value,type:$('relationType').value,status:$('relationStatus').value,source:$('relationSource').value,date:$('relationDate').value},contacts);if(relations.some(r=>r.from===relation.from&&r.to===relation.to&&r.type===relation.type)){message('Ce lien existe déjà.');return}relations.push(relation);const persisted=save();selected=relation.from;rebuild();$('relationSource').value='';if(persisted)message('Relation enregistrée sur cet appareil. Exporte une sauvegarde pour la transférer.')}catch(err){message(err.message)}};
+$('relationForm').onsubmit=e=>{e.preventDefault();try{const relation=validateRelation({id:crypto.randomUUID(),from:$('relationFrom').value,to:$('relationTo').value,type:$('relationType').value,status:$('relationStatus').value,source:$('relationSource').value,date:$('relationDate').value},contacts);if(relations.some(r=>r.from===relation.from&&r.to===relation.to&&r.type===relation.type)){message('Ce lien existe déjà.');return}relations.push(relation);const persisted=save();selected=relation.from;rebuild();$('relationSource').value='';if(persisted){window.dispatchEvent(new Event('argos:local-change'));message('Relation enregistrée sur cet appareil. Exporte une sauvegarde pour la transférer.')}}catch(err){message(err.message)}};
 window.addEventListener('argos:contacts',e=>{contacts=e.detail;rebuild()});
+// Controlled snapshot API for private Drive synchronization. Never exposed by postMessage.
+window.argosGetNetworkSnapshot=()=>({version:1,contacts:contacts.map(c=>({...c})),relations:relations.map(r=>({...r}))});
+window.argosReplaceNetworkRelations=(incoming,{silent=false}={})=>{
+ if(!Array.isArray(incoming)||incoming.length>50000)throw Error('Relations du référentiel invalide.');
+ const next=incoming.map(r=>validateRelation(r,contacts));
+ const ids=new Set();
+ for(const r of next){if(!r.id||ids.has(r.id))throw Error('Relation absente ou ID dupliqué.');ids.add(r.id)}
+ relations=next;const ok=save();if(!ok)throw Error('Écriture locale des relations impossible.');
+ rebuild();if(!silent)window.dispatchEvent(new Event('argos:local-change'));
+ return relations.length;
+};
 window.addEventListener('argos:export',()=>{const blob=new Blob([JSON.stringify({version:1,contacts,relations},null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='ARGOS-reseau-'+new Date().toISOString().slice(0,10)+'.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)});
 window.addEventListener('argos:restore-relations',e=>{const incoming=e.detail;if(!Array.isArray(incoming))return;let skipped=0;const map=new Map(relations.map(r=>[r.id,r]));for(const r of incoming){try{const valid=validateRelation(r,contacts);map.set(valid.id||crypto.randomUUID(),{...valid,id:valid.id||crypto.randomUUID()})}catch{skipped++}}relations=[...map.values()];save();rebuild();message('Sauvegarde importée : '+relations.length+' relations'+(skipped?' ; '+skipped+' liens invalides ignorés.':'.'))});
 new ResizeObserver(draw).observe(canvas);rebuild();
