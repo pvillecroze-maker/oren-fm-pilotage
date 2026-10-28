@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {collectFeed,normalizeFeed,validReply,METIS_ORIGIN} from '../../public/oren-feed-model.mjs';
 test('allowlist excludes secrets and bodies, keeps source and dates',()=>{
  const feed=collectFeed(k=>k==='metis-oren-v3-private'?JSON.stringify({token:'secret',tasks:[{id:'t',title:'Test',details:'private'}],events:[{id:'e',title:'Meeting',date:'2026-10-25'}],mails:[{id:'m',title:'Subject',text:'body',state:'Person <person@example.org>',date:1}]}):null);
- assert.equal(feed.items.length,3);assert.equal(feed.items[1].date,'2026-10-25');assert.equal(feed.items[2].email,'person@example.org');assert.doesNotMatch(JSON.stringify(feed),/secret|private|body/);
+ assert.equal(feed.items.length,3);assert.equal(feed.items[1].date,'2026-10-25');assert.equal(feed.items[2].email,undefined);assert.doesNotMatch(JSON.stringify(feed),/secret|private|body|person@example.org/);
 });
 test('deduplication, invalid sources and unsafe links',()=>{
  const item={source:'MÉTIS',kind:'task',id:'1',title:'A',url:'javascript:alert(1)'};
@@ -19,4 +19,14 @@ test('receiver authenticates origin, popup and one-time nonce',()=>{
 test('empty source stays empty; corrupt storage is surfaced',()=>{
  assert.equal(collectFeed(()=>null).items.length,0);
  assert.throws(()=>collectFeed(()=>'{bad'));
+});
+
+test('JANUS is the sole active METIS bridge origin',()=>{
+ assert.equal(METIS_ORIGIN,'https://janus-oren-patrick-os.vercel.app');
+});
+test('invalid mail date does not prevent metadata feed',()=>{
+ const feed=collectFeed(k=>k==='metis-oren-v3-private'?JSON.stringify({tasks:[],events:[],mails:[{id:'m',title:'Relance',date:'not-a-date',state:'hello@example.com'}]}):null);
+ assert.equal(feed.items.length,1);
+ assert.equal(feed.items[0].date,'');
+ assert.equal(feed.items[0].email,undefined);
 });
