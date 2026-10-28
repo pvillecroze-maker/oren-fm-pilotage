@@ -13,7 +13,7 @@ function makeDrive(){
   data,
   async fetch(url,opts={}){
    const u=new URL(url),list=u.pathname==='/drive/v3/files'&&u.searchParams.has('spaces');
-   const meta=u.pathname.endsWith('/drive/v3/files/shared')&&!u.searchParams.has('alt');
+   const meta=u.pathname==='/drive/v3/files/shared'&&!u.searchParams.has('alt');
    const media=u.pathname.endsWith('/drive/v3/files/shared')&&u.searchParams.get('alt')==='media';
    const created=u.pathname==='/upload/drive/v3/files'&&opts.method==='POST';
    const updated=u.pathname==='/upload/drive/v3/files/shared'&&opts.method==='PATCH';
