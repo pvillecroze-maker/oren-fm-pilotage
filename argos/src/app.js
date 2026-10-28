@@ -1,6 +1,7 @@
 import '../../public/oren-shell.mjs';
 import './oren-feed.js';
 import './network.js';
+import './cloud-sync.js';
 let contacts=[],cat='Tous';
 /* Données privées : stockage local du navigateur uniquement, jamais GitHub/Vercel. */
 const ARGOS_CACHE='argos:contacts:v2';
@@ -117,6 +118,47 @@ window.addEventListener('message',e=>{
  })).filter(c=>c.name&&c.name!=='Sans nom');
  e.source.postMessage({type:'oren:argos:task-links',version:1,at:new Date().toISOString(),contacts:names,total:contacts.length},e.origin);
 });
+window.argosApplyCloudSnapshot=async data=>{
+ if(data?.version!==1||!Array.isArray(data.contacts)||!Array.isArray(data.relations)||data.contacts.length>25000||data.relations.length>50000)throw Error('Référentiel ARGOS distant invalide.');
+ if(data.contacts.some(x=>!x||typeof x!=='object'||Array.isArray(x)))throw Error('Contact distant invalide.');
+ const before=window.argosGetNetworkSnapshot?.();
+ if(before?.contacts?.length||before?.relations?.length){
+  try{localStorage.setItem('argos:backup-before-cloud',JSON.stringify(before));}
+  catch{throw Error('Sauvegarde locale avant remplacement impossible. Exporte ton réseau ARGOS et libère de l’espace.');}
+ }
+ const priorContacts=contacts;
+ try{
+  contacts=data.contacts.map(x=>({...x}));render();
+  window.argosReplaceNetworkRelations(data.relations,{silent:true});
+  if(!(await saveContacts()))throw Error('Sauvegarde des contacts impossible');
+  if(data.metadata&&typeof data.metadata==='object')localStorage.setItem('argos:metadata:v1',JSON.stringify(data.metadata));
+  setSyncStatus('Référentiel Drive chargé : '+contacts.length+' contacts conservés sur cet appareil.');
+ }catch(e){
+  contacts=priorContacts;render();
+  if(before)window.argosReplaceNetworkRelations(before.relations,{silent:true});
+  await saveContacts();throw e;
+ }
+};
 window.addEventListener('argos:open-contact', e => show(e.detail));
 $('exportNetwork').onclick=()=>window.dispatchEvent(new Event('argos:export'));
-$('backupFile').onchange=async e=>{const f=e.target.files?.[0];if(!f)return;try{const data=JSON.parse(await f.text());if(data.version!==1||!Array.isArray(data.contacts)||!Array.isArray(data.relations))throw Error('Format de sauvegarde ARGOS non reconnu');if(data.contacts.some(c=>!c||typeof c!=='object'||Array.isArray(c)))throw Error('Contacts invalides');contacts=data.contacts;saveContacts();render();window.dispatchEvent(new CustomEvent('argos:restore-relations',{detail:data.relations}));}catch(err){alert('Import impossible : '+err.message)}e.target.value=''};
+$('backupFile').onchange=async e=>{
+ const f=e.target.files?.[0];if(!f)return;
+ try{
+  if(f.size>30000000)throw Error('Fichier supérieur à 30 Mo');
+  const data=JSON.parse(await f.text());
+  if(data.version!==1||!Array.isArray(data.contacts)||!Array.isArray(data.relations))throw Error('Format de sauvegarde ARGOS non reconnu');
+  if(data.contacts.length>25000||data.relations.length>50000||data.contacts.some(c=>!c||typeof c!=='object'||Array.isArray(c)))throw Error('Format ou volume non autorisé.');
+  const prior=window.argosGetNetworkSnapshot?.();
+  if(prior?.contacts?.length){
+   if(!confirm('Importer '+data.contacts.length+' fiches et '+data.relations.length+' relations ? Tes contacts actuels seront remplacés. Exporte ton réseau avant de continuer.'))return;
+   try{localStorage.setItem('argos:backup-before-import',JSON.stringify(prior));}catch{throw Error('Sauvegarde de sécurité locale impossible. Utilise Exporter le réseau avant import.');}
+  }
+  contacts=data.contacts.map(c=>({...c}));render();
+  window.dispatchEvent(new CustomEvent('argos:restore-relations',{detail:data.relations}));
+  if(!(await saveContacts()))throw Error('Sauvegarde des contacts impossible');
+  if(data.metadata&&typeof data.metadata==='object')localStorage.setItem('argos:metadata:v1',JSON.stringify(data.metadata));
+  window.dispatchEvent(new Event('argos:local-change'));
+  setSyncStatus('Import ARGOS : '+contacts.length+' fiches et relations restaurées. Référentiel local prêt pour la sauvegarde privée Drive.');
+ }catch(err){alert('Import impossible : '+err.message)}
+ e.target.value='';
+};
