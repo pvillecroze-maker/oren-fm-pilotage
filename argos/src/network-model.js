@@ -1,4 +1,6 @@
 export function personId(c) {
+  const sourceId=String(c['ARGOS - ID fiche'] || '').trim();
+  if(sourceId) return 'p:argos:' + encodeURIComponent(sourceId);
   const key = (c['ARGOS - Email principal'] || c['E-mail 1 - Value'] || [c['First Name'],c['Last Name'],c['Organization Name'],c['Phone 1 - Value']].join('|')).trim().toLowerCase();
   return 'p:' + encodeURIComponent(key);
 }
