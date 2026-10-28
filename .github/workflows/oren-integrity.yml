@@ -1,0 +1,39 @@
+name: OREN integrity checks
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout without persisted credentials
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364f4a28698 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Check shared navigation and privacy boundaries
+        run: node --test tests/janus-integration.test.mjs
+      - name: Check ARGOS bridge and contact graph
+        run: node --test argos/tests/*.test.js
+      - name: Check METIS mail parsers
+        run: node metis/tests/mail-sync.test.cjs
+      - name: Validate JavaScript syntax
+        run: |
+          node --check public/diagnostic.mjs
+          node --check public/sw.js
+          node --check public/oren-feed-model.mjs
+      - name: Build JANUS static site
+        run: |
+          bash scripts/build-oren.sh
+          test -f dist/janus.html
+          test -f dist/diagnostic.html
+          test -f dist/metis/index.html
+          test -f dist/music/index.html
+      - name: Build ARGOS
+        run: |
+          npm ci --prefix argos
+          npm run build --prefix argos
