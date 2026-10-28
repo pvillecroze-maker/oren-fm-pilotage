@@ -17,7 +17,58 @@ async function restoreContacts(){
  catch(e){}
  try{const saved=JSON.parse(localStorage.getItem(ARGOS_CACHE)||'null');if(!contactsChanged&&Array.isArray(saved)){contacts=saved;render();setSyncStatus(saved.length+' contacts restaurés localement.')}}catch(e){}
 }
-const $=id=>document.getElementById(id);const cats=['Tous','POL','FD83','INST','PRO','MED','ASSO','RESEAU','PERSO','AUTRE'];function csv(t){let rows=[],row=[],v='',q=false;for(let i=0;i<t.length;i++){let c=t[i];if(q){if(c==='"'&&t[i+1]==='"'){v+='"';i++}else if(c==='"')q=false;else v+=c}else if(c==='"')q=true;else if(c===','){row.push(v);v=''}else if(c==='\n'){row.push(v.replace(/\r$/,''));rows.push(row);row=[];v=''}else v+=c}if(v||row.length){row.push(v);rows.push(row)}let keys=rows.shift()||[];return rows.map(r=>Object.fromEntries(keys.map((k,i)=>[k,r[i]||''])))}const field=(c,...k)=>k.map(x=>c[x]).find(Boolean)||'';const name=c=>[c['First Name'],c['Last Name']].filter(Boolean).join(' ')||c['Organization Name']||'Sans nom';function node(tag,cls,txt){let n=document.createElement(tag);if(cls)n.className=cls;if(txt!==undefined)n.textContent=txt;return n}function appendContactLink(parent,label,url){if(!url)return;try{let u=new URL(url);if(!['https:','http:','mailto:','tel:'].includes(u.protocol))return;let a=node('a','',label);a.href=u.href;a.target='_blank';a.rel='noopener noreferrer';parent.append(a,node('p','',''))}catch{}}function show(c){let d=$('detail');d.replaceChildren(node('small','accent',field(c,'ARGOS - Catégorie')||'AUTRE'),node('h2','',name(c)),node('p','sub',field(c,'ARGOS - Profession','Organization Title','Organization Name')||'Profession non renseignée'),node('h3','','Résumé ARGOS'),node('p','',field(c,'ARGOS - Résumé')||'Profil à qualifier'),node('h3','','Coordonnées'));let mail=field(c,'ARGOS - Email principal','E-mail 1 - Value'),phone=field(c,'Phone 1 - Value');if(mail)appendContactLink(d,mail,'mailto:'+mail);if(phone)appendContactLink(d,phone,'tel:'+phone);d.append(node('p','',field(c,'ARGOS - Adresse principale','Address 1 - Formatted')));d.append(node('h3','','Réseaux'));appendContactLink(d,'Ouvrir le lien réseau ↗',field(c,'ARGOS - Lien réseau existant','ARGOS - Lien recherche LinkedIn'));d.append(node('small','sub','Un lien de recherche ne confirme pas une identité.'));$('profile').showModal()}function render(){window.dispatchEvent(new CustomEvent('argos:contacts',{detail:contacts}));let q=$('search').value.toLowerCase();let items=contacts.filter(c=>(cat==='Tous'||field(c,'ARGOS - Catégorie')===cat)&&[name(c),c['Organization Name'],c['ARGOS - Profession'],c['ARGOS - Résumé']].join(' ').toLowerCase().includes(q));$('count').textContent=contacts.length.toLocaleString('fr-FR');$('results').textContent=items.length.toLocaleString('fr-FR');let list=$('list');list.replaceChildren();if(!contacts.length){list.append(node('p','sub','Importe ton fichier ARGOS_contacts_profils_reseaux.csv pour commencer.'));return}for(let c of items.slice(0,250)){let b=node('button','card');b.append(node('b','',name(c)),node('small','sub',field(c,'ARGOS - Profession','Organization Title','Organization Name')||'À qualifier'),node('small','accent',field(c,'ARGOS - Catégorie')||'AUTRE'));b.onclick=()=>show(c);list.append(b)}if(items.length>250)list.append(node('p','sub','250 premiers résultats : affine ta recherche.'))}for(let c of cats){let b=node('button',c===cat?'on':'',c);b.onclick=()=>{cat=c;for(let x of $('filters').children)x.classList.toggle('on',x.textContent===cat);render()};$('filters').append(b)}$('search').oninput=render;$('close').onclick=()=>$('profile').close();$('file').onchange=async e=>{let f=e.target.files?.[0];if(!f)return;let data=csv(await f.text());if(!data.length||!('First Name'in data[0])){alert('CSV Google Contacts / ARGOS attendu');return}contacts=data;saveContacts();render();setSyncStatus(data.length+' contacts importés et conservés localement sur cet appareil.');};render();restoreContacts();
+const $=id=>document.getElementById(id);const cats=['Tous','POL','FD83','INST','PRO','MED','ASSO','RESEAU','PERSO','AUTRE'];function csv(t){let rows=[],row=[],v='',q=false;for(let i=0;i<t.length;i++){let c=t[i];if(q){if(c==='"'&&t[i+1]==='"'){v+='"';i++}else if(c==='"')q=false;else v+=c}else if(c==='"')q=true;else if(c===','){row.push(v);v=''}else if(c==='\n'){row.push(v.replace(/\r$/,''));rows.push(row);row=[];v=''}else v+=c}if(v||row.length){row.push(v);rows.push(row)}let keys=rows.shift()||[];return rows.map(r=>Object.fromEntries(keys.map((k,i)=>[k,r[i]||''])))}const field=(c,...k)=>k.map(x=>c[x]).find(Boolean)||'';const name=c=>[c['First Name'],c['Last Name']].filter(Boolean).join(' ')||c['Organization Name']||'Sans nom';function node(tag,cls,txt){let n=document.createElement(tag);if(cls)n.className=cls;if(txt!==undefined)n.textContent=txt;return n}function appendContactLink(parent,label,url){if(!url)return;try{let u=new URL(url);if(!['https:','http:','mailto:','tel:'].includes(u.protocol))return;let a=node('a','',label);a.href=u.href;a.target='_blank';a.rel='noopener noreferrer';parent.append(a,node('p','',''))}catch{}}function show(c){let d=$('detail');d.replaceChildren(node('small','accent',field(c,'ARGOS - Catégorie')||'AUTRE'),node('h2','',name(c)),node('p','sub',field(c,'ARGOS - Profession','Organization Title','Organization Name')||'Profession non renseignée'),node('h3','','Résumé ARGOS'),node('p','',field(c,'ARGOS - Résumé')||'Profil à qualifier'),node('h3','','Coordonnées'));let mail=field(c,'ARGOS - Email principal','E-mail 1 - Value'),phone=field(c,'Phone 1 - Value');if(mail)appendContactLink(d,mail,'mailto:'+mail);if(phone)appendContactLink(d,phone,'tel:'+phone);d.append(node('p','',field(c,'ARGOS - Adresse principale','Address 1 - Formatted')));d.append(node('h3','','Réseaux'));appendContactLink(d,'Ouvrir le lien réseau ↗',field(c,'ARGOS - Lien réseau existant','ARGOS - Lien recherche LinkedIn'));d.append(node('small','sub','Un lien de recherche ne confirme pas une identité.'));appendContactEditForm(c,false);$('profile').showModal()}function render(){window.dispatchEvent(new CustomEvent('argos:contacts',{detail:contacts}));let q=$('search').value.toLowerCase();let items=contacts.filter(c=>(cat==='Tous'||field(c,'ARGOS - Catégorie')===cat)&&[name(c),c['Organization Name'],c['ARGOS - Profession'],c['ARGOS - Résumé']].join(' ').toLowerCase().includes(q));$('count').textContent=contacts.length.toLocaleString('fr-FR');$('results').textContent=items.length.toLocaleString('fr-FR');let list=$('list');list.replaceChildren();if(!contacts.length){list.append(node('p','sub','Importe ton fichier ARGOS_contacts_profils_reseaux.csv pour commencer.'));return}for(let c of items.slice(0,250)){let b=node('button','card');b.append(node('b','',name(c)),node('small','sub',field(c,'ARGOS - Profession','Organization Title','Organization Name')||'À qualifier'),node('small','accent',field(c,'ARGOS - Catégorie')||'AUTRE'));b.onclick=()=>show(c);list.append(b)}if(items.length>250)list.append(node('p','sub','250 premiers résultats : affine ta recherche.'))}for(let c of cats){let b=node('button',c===cat?'on':'',c);b.onclick=()=>{cat=c;for(let x of $('filters').children)x.classList.toggle('on',x.textContent===cat);render()};$('filters').append(b)}$('search').oninput=render;$('close').onclick=()=>$('profile').close();$('file').onchange=async e=>{let f=e.target.files?.[0];if(!f)return;let data=csv(await f.text());if(!data.length||!('First Name'in data[0])){alert('CSV Google Contacts / ARGOS attendu');return}contacts=data;saveContacts();render();setSyncStatus(data.length+' contacts importés et conservés localement sur cet appareil.');};render();restoreContacts();
+function appendContactEditForm(contact,creating=false){
+ const root=creating?$('detail'):$('detail');
+ if(creating)root.replaceChildren(node('h2','','Nouvelle fiche ARGOS'));
+ const details=document.createElement('details');details.open=creating;
+ const summary=node('summary','',creating?'Saisir la nouvelle fiche':'Modifier cette fiche');details.append(summary);
+ const form=document.createElement('form');form.style.cssText='display:grid;gap:12px;padding:12px 0';
+ const specs=[
+  ['Prénom','First Name','text'],
+  ['Nom','Last Name','text'],
+  ['Organisation','Organization Name','text'],
+  ['Profession / fonction','ARGOS - Profession','text'],
+  ['Catégorie','ARGOS - Catégorie','category'],
+  ['Résumé factuel','ARGOS - Résumé','textarea'],
+  ['Source / référence','ARGOS - Source','textarea']
+ ];
+ const controls=new Map();
+ for(const [label,key,kind] of specs){
+  const wrapper=node('label','',label);wrapper.style.cssText='display:block;color:#bcd6de;font-size:12px';
+  let input;
+  if(kind==='category'){input=document.createElement('select');for(const v of cats.filter(x=>x!=='Tous')){const o=document.createElement('option');o.value=v;o.textContent=v;input.append(o)}}
+  else input=document.createElement(kind==='textarea'?'textarea':'input');
+  if(kind==='text')input.type='text';
+  if(kind==='textarea')input.rows=3;
+  input.value=String(contact[key]|| (kind==='category'?'AUTRE':''));
+  input.style.cssText='display:block;width:100%;box-sizing:border-box;padding:10px;margin-top:4px;background:#102939;border:1px solid #416277;color:#e8f6f4;border-radius:8px';
+  wrapper.append(input);form.append(wrapper);controls.set(key,input);
+ }
+ const submit=node('button','',creating?'Créer la fiche':'Enregistrer les modifications');
+ submit.type='submit';submit.style.cssText='padding:12px;background:#174b4a;color:#d7fff2;border:1px solid #62ab99;border-radius:8px';
+ form.append(submit);
+ form.onsubmit=async event=>{
+  event.preventDefault();const next={...contact};
+  for(const [key,input] of controls)next[key]=input.value.trim().slice(0,key==='ARGOS - Résumé'?4000:1400);
+  if(!next['First Name']&&!next['Last Name']&&!next['Organization Name']){alert('Indique au moins un nom ou une organisation.');return}
+  if(!next['ARGOS - ID fiche'])next['ARGOS - ID fiche']='argos-local-'+crypto.randomUUID();
+  const original=creating?null:{...contact};
+  if(creating)contacts.push(next);else Object.assign(contact,next);
+  submit.disabled=true;
+  try{
+   if(!(await saveContacts()))throw Error('Sauvegarde locale indisponible');
+   cat='Tous';render();window.dispatchEvent(new Event('argos:local-change'));
+   $('profile').close();setSyncStatus('Fiche ARGOS enregistrée localement'+(creating?' (création).':' (modification).')+' Synchronisation Drive si connecté.');
+  }catch(error){
+   if(creating)contacts=contacts.filter(x=>x!==next);else Object.assign(contact,original);
+   render();alert('Modification non conservée : '+error.message);
+  }finally{submit.disabled=false}
+ };
+ details.append(form);root.append(details);
+}
+const newButton=$('newContact');
+if(newButton)newButton.onclick=()=>{const fresh={'ARGOS - Catégorie':'AUTRE'};appendContactEditForm(fresh,true);$('profile').showModal()};
 const GOOGLE_CLIENT_ID='491091087228-lcc2u9hq27q8nt2pdgjueik6ru3cugma.apps.googleusercontent.com';
 const statusEl=$('syncStatus');
 const setSyncStatus=msg=>{if(statusEl)statusEl.textContent=msg};
