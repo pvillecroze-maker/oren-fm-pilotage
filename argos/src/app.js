@@ -20,30 +20,76 @@ const $=id=>document.getElementById(id);const cats=['Tous','POL','FD83','INST','
 const GOOGLE_CLIENT_ID='491091087228-lcc2u9hq27q8nt2pdgjueik6ru3cugma.apps.googleusercontent.com';
 const statusEl=$('syncStatus');
 const setSyncStatus=msg=>{if(statusEl)statusEl.textContent=msg};
+const PEOPLE_COOLDOWN_KEY='argos:people:retry-after';
+let peopleBusy=false;
+async function fetchPeoplePage(url,accessToken){
+ const cooldown=Number(localStorage.getItem(PEOPLE_COOLDOWN_KEY)||0);
+ if(Date.now()<cooldown){const minutes=Math.ceil((cooldown-Date.now())/60000);throw Error('Google People limite temporaire atteinte. Réessaie dans '+minutes+' min. Aucun contact local n’a été effacé.')}
+ const response=await fetch(url,{headers:{Authorization:'Bearer '+accessToken},cache:'no-store'});
+ if(response.status===429){
+  const h=Number(response.headers.get('retry-after'));
+  const delay=Number.isFinite(h)&&h>0?Math.min(3600,Math.max(60,h)):600;
+  localStorage.setItem(PEOPLE_COOLDOWN_KEY,String(Date.now()+delay*1000));
+  throw Error('Google People API HTTP 429 : quota dépassé. Nouvelle tentative possible dans '+Math.ceil(delay/60)+' min. Utilise le CSV ou le JSON ARGOS en attendant ; tes fiches restent préservées.');
+ }
+ if(!response.ok)throw Error('Google People API HTTP '+response.status+' : vérifie les autorisations et les quotas Google Cloud.');
+ return response.json();
+}
+function mergeGoogleContacts(incoming){
+ const result=contacts.map(c=>({...c}));
+ const emails=new Map(),phones=new Map();
+ const key=x=>String(x||'').trim().toLocaleLowerCase('fr');
+ const phone=x=>String(x||'').replace(/[^0-9+]/g,'');
+ for(let i=0;i<result.length;i++){
+  const mail=key(result[i]['ARGOS - Email principal']||result[i]['E-mail 1 - Value']);if(mail)emails.set(mail,i);
+  const number=phone(result[i]['Phone 1 - Value']);if(number&&number.length>=8)phones.set(number,i);
+ }
+ let added=0,enriched=0;
+ for(const entry of incoming){
+  const email=key(entry['ARGOS - Email principal']),number=phone(entry['Phone 1 - Value']);
+  const match=email&&emails.has(email)?emails.get(email):number&&number.length>=8&&phones.has(number)?phones.get(number):-1;
+  if(match>=0){
+   const old=result[match];let updated=false;
+   for(const [k,v] of Object.entries(entry)){if(v&&(!old[k]||old[k]==='Contact Google non qualifié dans ARGOS')){old[k]=v;updated=true}}
+   if(updated)enriched++;
+  }else{
+   result.push(entry);const idx=result.length-1;if(email)emails.set(email,idx);if(number&&number.length>=8)phones.set(number,idx);added++;
+  }
+ }
+ return {result,added,enriched};
+}
 $('googleContacts').onclick=()=>{
- if(!window.google?.accounts?.oauth2){setSyncStatus('Google Identity indisponible. Recharge la page dans Safari.');return}
+ if(peopleBusy){setSyncStatus('Lecture Google déjà en cours, attends son résultat.');return}
+ if(!window.google?.accounts?.oauth2){setSyncStatus('Google Identity indisponible. Recharge la page.');return}
+ const cooldown=Number(localStorage.getItem(PEOPLE_COOLDOWN_KEY)||0);
+ if(Date.now()<cooldown){setSyncStatus('Google People API 429 : nouvelle tentative dans '+Math.ceil((cooldown-Date.now())/60000)+' min. Aucun contact supprimé.');return}
  const client=google.accounts.oauth2.initTokenClient({
   client_id:GOOGLE_CLIENT_ID,
   scope:'https://www.googleapis.com/auth/contacts.readonly',
   callback:async response=>{
    if(response.error||!response.access_token){setSyncStatus('Autorisation Google refusée ou indisponible.');return}
+   if(peopleBusy)return;peopleBusy=true;$('googleContacts').disabled=true;
    try{
-    setSyncStatus('Lecture sécurisée de Google Contacts…');
-    const all=[];let next='';
+    setSyncStatus('Lecture sécurisée Google Contacts… données locales préservées.');
+    const all=[];let next='',pages=0;
     do{
      const url='https://people.googleapis.com/v1/people/me/connections?personFields=names,emailAddresses,phoneNumbers,organizations,addresses,photos,urls&pageSize=1000'+(next?'&pageToken='+encodeURIComponent(next):'');
-     const res=await fetch(url,{headers:{Authorization:'Bearer '+response.access_token},cache:'no-store'});
-     if(!res.ok)throw Error('Google People API HTTP '+res.status+' (vérifie les autorisations et l’API People)');
-     const data=await res.json();
-     all.push(...(data.connections||[]));
-     next=data.nextPageToken||'';
+     const data=await fetchPeoplePage(url,response.access_token);
+     all.push(...(data.connections||[]));next=data.nextPageToken||'';
+     if(++pages>100)throw Error('Pagination Google anormale : arrêt sans modification des contacts locaux.');
     }while(next);
-    contacts=all.map(p=>{
+    const incoming=all.map(p=>{
      const n=p.names?.[0]||{},org=p.organizations?.[0]||{},address=p.addresses?.[0]||{};
      return {'First Name':n.givenName||'','Last Name':n.familyName||'','Organization Name':org.name||'','Organization Title':org.title||'','ARGOS - Profession':org.title||'','ARGOS - Email principal':p.emailAddresses?.[0]?.value||'','Phone 1 - Value':p.phoneNumbers?.[0]?.value||'','ARGOS - Adresse principale':address.formattedValue||'','ARGOS - Photo URL':p.photos?.[0]?.url||'','ARGOS - Lien réseau existant':p.urls?.[0]?.value||'','ARGOS - Catégorie':'AUTRE','ARGOS - Résumé':'Contact Google non qualifié dans ARGOS'};
     });
-    cat='Tous';saveContacts();render();setSyncStatus(contacts.length+' contacts lus depuis Google. Lecture seule ; aucune donnée publiée ou enregistrée sur le serveur. Les catégories du CSV enrichi ne sont pas transférées automatiquement.');
+    const merge=mergeGoogleContacts(incoming);
+    if(!merge.added&&!merge.enriched){setSyncStatus('Google Contacts lu : aucune nouvelle fiche, mémoire ARGOS conservée.');return}
+    contacts=merge.result;
+    const saved=await saveContacts();if(!saved)throw Error('Sauvegarde locale indisponible. Exporte tes données ARGOS.');
+    cat='Tous';render();window.dispatchEvent(new Event('argos:local-change'));
+    setSyncStatus('Google Contacts : '+all.length+' contacts lus · '+merge.added+' ajoutés · '+merge.enriched+' enrichis. Catégories et fiches ARGOS conservées.');
    }catch(err){setSyncStatus('Synchronisation impossible : '+err.message)}
+   finally{peopleBusy=false;$('googleContacts').disabled=false}
   }
  });
  client.requestAccessToken({prompt:'consent'});
