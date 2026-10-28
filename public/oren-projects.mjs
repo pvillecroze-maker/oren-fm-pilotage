@@ -3,7 +3,7 @@ export const projects=[
  {id:'janus',name:'JANUS',url:HOME+'/janus.html',detail:'Portail central de toutes les applications et espaces de projets OREN.'},
  {id:'metis',name:'MÉTIS',url:HOME+'/metis/index.html',detail:'Tâches, agenda et courriels. Session Google requise pour actualiser les sources.'},
  {id:'anteros',name:'ANTEROS',url:'https://anteros-patrick.cosmic-spool-9901.chatgpt.site',detail:'Application personnelle distincte, accès privé. Aucune synchronisation ni import de photos ou fiches vers JANUS.'},
- {id:'argos',name:'ARGOS',url:'https://argos-network.vercel.app/',detail:'Flux de métadonnées MÉTIS toutes les minutes, application visible. Même navigateur requis ; import JSON disponible en secours.'},
+ {id:'argos',name:'ARGOS',url:'https://argos-network.vercel.app/',detail:'Réseau de contacts, édition de fiches et synchronisation privée via Google Drive (après consentement). Flux MÉTIS local et export JSON conservé.'},
  {id:'music',name:'APOLLON',url:HOME+'/music/index.html',detail:'Musique et humeur. Synthèse locale accessible à JANUS.'},
  {id:'hermes',name:'HERMÈS',url:HOME+'/hermes.html',detail:'Tâches locales partagées avec la matrice simplifiée et le flux ARGOS.'},
  {id:'vox',name:'VOX DIEI',url:HOME+'/vox-diei.html',detail:'Accès à la veille radio. Pas de transfert de données vers ARGOS.'},
