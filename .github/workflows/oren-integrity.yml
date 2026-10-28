@@ -16,7 +16,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Check shared navigation and privacy boundaries
-        run: node --test tests/janus-integration.test.mjs
+        run: node --test tests/*.test.mjs
       - name: Check ARGOS bridge and contact graph
         run: node --test argos/tests/*.test.js
       - name: Check METIS mail parsers
