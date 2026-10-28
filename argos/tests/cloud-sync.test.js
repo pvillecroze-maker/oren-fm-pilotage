@@ -36,7 +36,7 @@ function app(drive,initial){
  const localStorage={getItem:k=>store.get(k)||null,setItem:(k,v)=>store.set(k,String(v)),removeItem:k=>store.delete(k)};
  const ctx={window,document,localStorage,crypto:webcrypto,TextEncoder,Uint8Array,URL,Date,JSON,fetch:drive.fetch,setInterval:()=>0,setTimeout,clearTimeout,AbortController,confirm:()=>true,console};ctx.google=window.google;
  vm.runInNewContext(source,ctx,{filename:'cloud-sync.js'});
- const done=async needle=>{for(let i=0;i<60;i++){if(el('argosDriveStatus').textContent.includes(needle))return;await sleep(10)}throw Error('Expected '+needle+' got '+el('argosDriveStatus').textContent)};
+ const done=async needle=>{for(let i=0;i<60;i++){if(el('argosDriveStatus').textContent.includes(needle)&&!el('argosDriveSync').disabled)return;await sleep(10)}throw Error('Expected '+needle+' got '+el('argosDriveStatus').textContent)};
  return {data,el,connect:()=>el('argosDriveConnect').onclick(),sync:()=>el('argosDriveSync').onclick(),done,localStorage,change:(c)=>{data.contacts.push(c);}};
 }
 test('first ARGOS session creates a private Drive reference then another device downloads it',async()=>{
