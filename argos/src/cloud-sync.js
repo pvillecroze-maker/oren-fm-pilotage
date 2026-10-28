@@ -7,7 +7,7 @@ let token='',expiry=0,working=false,remote=null,remoteVersion='',remoteId='',app
 const box=document.createElement('section');
 box.className='panel';box.style.margin='22px 0';
 box.innerHTML='<h3>ARGOS · Référentiel privé partagé</h3><p class="sub">Synchronise les contacts et relations avec un fichier JSON privé créé dans ton Google Drive. Une fois autorisée, la synchronisation fonctionne à l’ouverture et pendant que cette page reste active. Les autres appareils doivent autoriser le même compte Google. Aucun jeton n’est enregistré.</p><button id="argosDriveConnect" type="button">Connecter Google Drive</button> <button id="argosDriveSync" type="button" disabled>Synchroniser maintenant</button> <button id="argosDrivePull" type="button" hidden>Charger la version Drive</button> <button id="argosDrivePush" type="button" hidden>Conserver la version locale</button> <button id="argosDriveDisconnect" type="button" disabled>Déconnecter</button><p id="argosDriveStatus" class="sub" role="status" aria-live="polite">Non connecté. Importe d’abord ta sauvegarde ARGOS pour rétablir la mémoire historique.</p><p class="sub">En cas de modifications concurrentes, le transfert s’arrête avant de remplacer les données. Exporte le réseau avant une résolution. Un fichier Drive commun peut aussi être consulté et modifié dans ChatGPT sur demande, mais la mémoire interne des conversations n’est pas synchronisée en temps réel.</p>';
-document.querySelector('main').append(box);
+(document.querySelector('.hero')||document.querySelector('main')).after(box);
 const el=id=>document.getElementById(id),status=message=>el('argosDriveStatus').textContent=message;
 function getSnapshot(){
  const value=window.argosGetNetworkSnapshot?.();
