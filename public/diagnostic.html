@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#07101d">
+<title>JANUS · Diagnostic de connexions</title><link rel="manifest" href="/manifest.webmanifest">
+<style>
+:root{color-scheme:dark;--a:#7ee6d5;--b:#d5b87c;--stroke:#345669}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 55% 0,#133343,#07101c 65%);color:#e6f2f5;font:14px/1.6 system-ui,-apple-system,Segoe UI,sans-serif}
+main{width:min(1000px,94vw);margin:auto;padding:34px 0 75px}
+a{color:#8ce7d7}h1{font:normal clamp(34px,6vw,60px) Georgia,serif;letter-spacing:.11em;margin:12px 0}p{color:#adbfcb}
+.kicker{color:var(--a);letter-spacing:.22em;font-size:11px}button{border:1px solid #548e89;background:#15373c;color:#d4fff3;border-radius:9px;padding:12px 18px;font:inherit;cursor:pointer}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin-top:26px}
+.card{background:#102333;border:1px solid var(--stroke);border-radius:13px;padding:18px}
+.card h2{font-size:16px;margin:0 0 8px}.card small{display:block;color:#afbfcd;margin-top:6px}
+.status{color:var(--b);font-weight:700;font-size:12px}.status.ok{color:var(--a)}
+small.privacy{font-size:12px;color:#9bb3be;margin-top:20px}
+@media(max-width:700px){.grid{grid-template-columns:1fr}}
+</style></head>
+<body><main><div class="kicker">OREN / CONTRÔLE QUALITÉ</div><h1>DIAGNOSTIC JANUS</h1>
+<p>Tests du portail depuis cet appareil, sans accès automatique à tes comptes ni transfert de données personnelles. Un test de fichier présent ne prouve pas une authentification Google ou une synchronisation entre appareils.</p>
+<p><a href="/janus.html">← Retour au portail JANUS</a></p><button type="button" id="run">Relancer les vérifications</button>
+<div id="grid" class="grid" aria-live="polite"></div>
+<p class="privacy">L'écran n'affiche que des états techniques et des comptes agrégés. Aucune tâche, adresse Gmail, photo, jeton OAuth ou fiche ANTEROS n'est envoyée à un serveur par cet outil.</p>
+<p><a href="/metis/index.html">MÉTIS / connexion Google</a> · <a href="/connections.html">Registre des connexions</a> · <a href="https://argos-network.vercel.app/">ARGOS</a></p>
+</main><script type="module" src="/diagnostic.mjs"></script></body></html>
