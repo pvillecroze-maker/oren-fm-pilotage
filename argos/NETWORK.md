@@ -6,7 +6,7 @@ Les organisations proviennent uniquement du champ organisation du contact. Aucun
 
 La vue affiche au maximum 250 personnes uniques ; la recherche permet de restreindre l’ensemble. Les doublons ayant la même adresse principale sont regroupés dans le graphe. Sans adresse, l’identité utilise nom, organisation et téléphone.
 
-Les contacts restent en mémoire pendant la session. Les relations sont conservées dans localStorage sur l’appareil. Le bouton Exporter le réseau télécharge contacts et relations dans un JSON privé ; Importer une sauvegarde les restaure. Aucun contact ou jeton Google n’est envoyé à GitHub ou au serveur Vercel. Ce fonctionnement n’est pas une synchronisation multiappareil automatique.
+Les contacts restent en mémoire pendant la session. Les relations sont conservées dans localStorage sur l’appareil. Le bouton Exporter le réseau télécharge contacts et relations dans un JSON privé ; Importer une sauvegarde les restaure. Aucun contact ou jeton Google n’est envoyé à GitHub ou au serveur Vercel. Par défaut, ce fonctionnement est local. Depuis le 28 octobre 2026, ARGOS propose en complément un fichier privé Google Drive créé avec le scope OAuth `drive.file`, dont les versions sont comparées avant une lecture ou écriture. La synchronisation requiert une connexion Google sur chaque appareil ; les conflits bloquent l'écriture et nécessitent un arbitrage explicite. Aucune synchronisation n'est active avant ce consentement. La mémoire interne de ChatGPT n'est pas actualisée automatiquement ; le fichier Drive est un référentiel partagé consultable via un connecteur autorisé.
 
 ## Déploiement
 
