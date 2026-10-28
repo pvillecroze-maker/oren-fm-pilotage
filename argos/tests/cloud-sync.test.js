@@ -46,6 +46,7 @@ test('first ARGOS session creates a private Drive reference then another device 
  const second=app(drive,{contacts:[],relations:[]});second.connect();await second.done('Drive → ARGOS');
  assert.equal(second.data.contacts.length,1);assert.equal(second.data.contacts[0]['First Name'],'Alice');
  first.change({'First Name':'Bob'});first.sync();await first.done('modifications locales enregistrées');
+ assert.equal(drive.data.file.contacts.length,2,'ARGOS local change must persist to mock Drive');
  second.sync();await second.done('Drive → ARGOS');assert.equal(second.data.contacts.length,2);
 });
 test('simultaneous local and remote changes stop before overwriting',async()=>{
