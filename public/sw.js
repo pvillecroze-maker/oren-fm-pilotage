@@ -1,4 +1,4 @@
-const CACHE='janus-oren-static-v3';
+const CACHE='janus-oren-static-v4';
 const STATIC=['/olympos-structure.mjs','/olympos-spaces.mjs','/janus.html','/connections.html','/connections.mjs','/oren-projects.mjs','/oren-shell.mjs','/diagnostic.html','/diagnostic.mjs','/manifest.webmanifest','/icons/janus-v1-192.png','/icons/janus-v1-512.png'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(STATIC)).catch(()=>{}));self.skipWaiting()});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('janus-oren-static-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()))});
