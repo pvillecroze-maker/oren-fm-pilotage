@@ -9,7 +9,7 @@ export const projects=[
  {id:'vox',name:'VOX DIEI',url:HOME+'/vox-diei.html',detail:'Accès à la veille radio. Pas de transfert de données vers ARGOS.'},
  {id:'pheme',name:'PHÈMÉ',url:'https://argos-oren-opinion-toulon.vercel.app/observatoire.html',detail:'Observatoire accessible. Connecteur de données non installé.'},
  {id:'dossier',name:'DOSSIER LAVALETTE',url:'https://pheme-dossier-lavalette.vercel.app/',detail:'Dossier accessible. Connecteur de données non installé.'},
- {id:'olympos',name:'OLYMPOS MOBILE · ancien accès',url:'https://olympos-mobile-pv.vercel.app/',detail:'Ancien accès mobile conservé pour consultation ; JANUS est le portail unique. Vérifier les données avant toute désactivation.'},
+ {id:'olympos',legacy:true,name:'OLYMPOS MOBILE · ancien accès',url:'https://olympos-mobile-pv.vercel.app/',detail:'Ancien accès mobile conservé pour consultation ; JANUS est le portail unique. Vérifier les données avant toute désactivation.'},
  {id:'cap',name:'ÉLEUTHÉRIA',url:'https://cap-sans-tabac.vercel.app/',detail:'Accompagnement de l’arrêt du tabac. Données personnelles non partagées avec les autres modules. Ancien nom CAP ; URL conservée.'},
  {id:'athena',name:'ATHÉNA',url:'https://drive.google.com/drive/folders/123FKYdj1yY8o7prLpq7a8uKRyJPiSHEo',detail:'Espace Google Drive emploi et candidatures, pas une application synchronisée.'},
  {id:'calliope',name:'CALLIOPE',url:'https://drive.google.com/drive/folders/1cvwZ24QhEcsjJjKofN2LDu4D82wt_yJX',detail:'Espace Google Drive communication, FD83 et engagements.'},
