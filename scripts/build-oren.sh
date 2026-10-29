@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
+node scripts/check-architecture.mjs
 mkdir -p dist/metis dist/music
 cp -R public/. dist/
 cp metis/index.html metis/project.html metis/google-sync.js metis/mail-sync.js metis/oren-theme.css metis/manifest.webmanifest metis/sw.js metis/icon-192.png metis/icon-512.png dist/metis/
