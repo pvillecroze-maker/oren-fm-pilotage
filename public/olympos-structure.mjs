@@ -116,7 +116,7 @@ export const projectStructure={
   "olympos": {
     "spaceId": "00",
     "driveUrl": "https://drive.google.com/drive/folders/1ajhNgpcHBcxsDRFUBcV2Iarn0e1ya-Nc",
-    "connection": "Accès par lien · aucune synchronisation interprojets"
+    "connection": "Ancienne interface mobile, conservée à titre transitoire ; JANUS est le portail principal."
   },
   "cap": {
     "spaceId": "06",
